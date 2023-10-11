@@ -3,41 +3,44 @@ package a23.sim203.tp2.modele;
 import javafx.scene.control.Alert;
 import org.mariuszgromada.math.mxparser.*;
 
-import javax.lang.model.element.VariableElement;
 import java.util.*;
 
 public class MoteurCalcul {
 
     // ajoutez les attributs pour stocker les équations et les variables
-    private Expression expression;
-    private HashSet<Equation> equationSet;
+    private HashMap<Object, Object> variableMap;
+    private HashMap<Object, Object> equationMap;
 
     public MoteurCalcul() {
         License.iConfirmNonCommercialUse("Cegep Limoilou");
-        this.expression = new Expression();
-        equationSet = new HashSet<Equation>();
+        variableMap = new HashMap<>();
+        equationMap = new HashMap<>();
 
     }
 
     private Set<String> determineToutesVariablesRequises() {
-        return new HashSet<>(getToutesLesVariables());
+        return (Set<String>) getToutesLesVariables();
     }
 
     private void ajouteVariable(String variable, double valeur) {
-        Constant constant = new Constant(variable, valeur);
-        expression.addConstants(constant);
+        variableMap.put(variable, new Constant(variable, valeur));
     }
 
     public void setValeurVariable(String nomVariable, double valeur) {
-        Constant var = expression.getConstant(nomVariable);
-        var.setConstantValue(valeur);
+        variableMap.put(nomVariable, new Constant(nomVariable, valeur));
     }
 
     public void ajouteEquation(String nouvelleEquation) {
         String[] nouvelleEquationSplit = nouvelleEquation.split("=");
+        ArrayList<String> nomsVariables = new ArrayList<>();
         try {
             Equation equation = new Equation(nouvelleEquationSplit[0], nouvelleEquationSplit[1]);
-            equationSet.add(equation);
+            equationMap.put(equation.getNom(), new Expression(equation.getExpression()));
+            Collections.addAll(nomsVariables, equation.getExpression().split("[+]"));
+            Collections.addAll(nomsVariables, equation.getExpression().split("[-]"));
+            Collections.addAll(nomsVariables, equation.getExpression().split("[/]"));
+            Collections.addAll(nomsVariables, equation.getExpression().split("[*]"));
+            //TODO faut ajouter nomsVariables a variableMap mais je sais pas sous quelle forme
         } catch (RuntimeException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Équation non valide");
@@ -46,7 +49,6 @@ public class MoteurCalcul {
 
 
     public void effaceEquation(String nomEquation) {
-
 
     }
 
@@ -62,9 +64,14 @@ public class MoteurCalcul {
     }
 
     public Collection<String> getToutesLesVariables() {
+        HashSet<String> toutesLesVariables = new HashSet<String>();
 
+        Iterator iterator = variableMap.values().iterator();
+        while (iterator.hasNext()) {
+            Expression expressionTemp = (Expression) iterator.next();
+        }
 
-        return null; // à changer
+        return toutesLesVariables; // à changer
     }
 
     public Equation getToutesLesEquations() {
@@ -74,15 +81,11 @@ public class MoteurCalcul {
 
 
     public Map<Object, Object> getVariableValueMap() {
-
-        return null; // à changer
-
+        return variableMap; // à changer
     }
 
     public Map<Object, Object> getEquationMap() {
-
-        return null; // à changer
-
+        return variableMap;
     }
 
     public static void main(String[] args) {
