@@ -10,14 +10,14 @@ public class MoteurCalcul {
 
     // ajoutez les attributs pour stocker les équations et les variables
     private Expression expression;
-    private Equation equation;
+    private HashSet<Equation> equationSet;
 
     public MoteurCalcul() {
         License.iConfirmNonCommercialUse("Cegep Limoilou");
         this.expression = new Expression();
+        equationSet = new HashSet<Equation>();
 
     }
-
 
     private Set<String> determineToutesVariablesRequises() {
         return new HashSet<>(getToutesLesVariables());
@@ -34,12 +34,13 @@ public class MoteurCalcul {
     }
 
     public void ajouteEquation(String nouvelleEquation) {
-        Equation equation1 = new Equation(nouvelleEquation,expression.getDescription());
-        for (int i = 0; i < getToutesLesVariables().size() ; i++) {
-            if (expression.getConstant(i) == null){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Équation non valide");
-            }
+        String[] nouvelleEquationSplit = nouvelleEquation.split("=");
+        try {
+            Equation equation = new Equation(nouvelleEquationSplit[0], nouvelleEquationSplit[1]);
+            equationSet.add(equation);
+        } catch (RuntimeException e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Équation non valide");
         }
     }
 
