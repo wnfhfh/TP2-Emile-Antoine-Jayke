@@ -49,7 +49,18 @@ public class MoteurCalcul {
 
 
     public void effaceEquation(String nomEquation) {
-
+        if (equationMap.containsKey(nomEquation)) {
+            Object variableAssociee = equationMap.get(nomEquation);
+            equationMap.remove(nomEquation);
+            if (variableAssociee != null) {
+                variableMap.replace(variableAssociee, 0.0);
+            }
+            for (Object variable : variableMap.keySet()) {
+                if (!equationMap.containsKey(variable)) {
+                    variableMap.remove(variable);
+                }
+            }
+        }
     }
 
     public double calcule(String nomEquation) {
