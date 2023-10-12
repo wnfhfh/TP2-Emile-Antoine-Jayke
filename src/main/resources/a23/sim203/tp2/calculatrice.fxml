@@ -16,8 +16,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane prefHeight="625.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="a23.sim203.tp2.controller.CalculatriceController">
+<BorderPane prefHeight="625.0" prefWidth="814.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="a23.sim203.tp2.controller.CalculatriceController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -75,7 +74,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" GridPane.columnSpan="3" GridPane.hgrow="NEVER" GridPane.rowSpan="2" GridPane.vgrow="NEVER" />
+                  <TextField fx:id="stringAffiche" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" GridPane.columnSpan="3" GridPane.hgrow="NEVER" GridPane.rowSpan="2" GridPane.vgrow="NEVER" />
                   <Button fx:id="boutonDiviser" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="/" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                   <Button fx:id="boutonMultiplier" layoutX="460.0" layoutY="68.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="*" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                   <Button fx:id="boutonSoustraire" layoutX="460.0" layoutY="125.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3" />

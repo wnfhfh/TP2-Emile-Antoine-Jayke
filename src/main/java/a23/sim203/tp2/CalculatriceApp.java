@@ -1,5 +1,6 @@
 package a23.sim203.tp2;
 
+import a23.sim203.tp2.app.GestionAffichage;
 import a23.sim203.tp2.controller.CalculatriceController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -14,16 +15,20 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class CalculatriceApp extends Application {
+    GestionAffichage gestionAffichage;
+    CalculatriceController calculatriceController;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(CalculatriceApp.class.getResource("calculatrice.fxml"));
         Node root = fxmlLoader.load();
         Scene scene = new Scene((Parent) root);
         primaryStage.setScene(scene);
+
+        calculatriceController = fxmlLoader.getController();
+        gestionAffichage = calculatriceController.getGestionAffichage();
+        gestionAffichage.setCalculatriceController(calculatriceController);
+
         primaryStage.show();
-    }
-
-    private void watchBoutonsCalculatrice(HBox hBoxCentre) {
-
     }
 }

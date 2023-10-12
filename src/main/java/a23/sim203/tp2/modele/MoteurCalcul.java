@@ -41,9 +41,16 @@ public class MoteurCalcul {
             Collections.addAll(nomsVariables, equation.getExpression().split("[/]"));
             Collections.addAll(nomsVariables, equation.getExpression().split("[*]"));
             //TODO faut ajouter nomsVariables a variableMap mais je sais pas sous quelle forme
+ajouterVariables(nomsVariables);
         } catch (RuntimeException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Équation non valide");
+        }
+    }
+
+    private void ajouterVariables(ArrayList<String> nomsVariables) {
+        for (int i = 0; i < nomsVariables.size(); i++) {
+            variableMap.put(nomsVariables.get(i),Double.NaN);
         }
     }
 

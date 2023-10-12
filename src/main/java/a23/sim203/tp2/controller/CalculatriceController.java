@@ -1,19 +1,21 @@
 package a23.sim203.tp2.controller;
 
+import a23.sim203.tp2.app.GestionAffichage;
+import a23.sim203.tp2.modele.MoteurCalcul;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckMenuItem;
-import javafx.scene.control.ListView;
-import javafx.scene.control.Menu;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CalculatriceController implements Initializable {
+
+    GestionAffichage gestionAffichage;
 
     @FXML
     private Button bouton0;
@@ -109,12 +111,40 @@ public class CalculatriceController implements Initializable {
     private ToggleButton toggleBoutonLire;
 
     @FXML
-    void setBoutonsCalculatrice() {
+    private TextField stringAffiche;
 
+    @FXML
+    void setBoutonsCalculatrice() {
+        gestionAffichage.setBoutonCaractere('0', bouton0);
+        gestionAffichage.setBoutonCaractere('1', bouton1);
+        gestionAffichage.setBoutonCaractere('2', bouton2);
+        gestionAffichage.setBoutonCaractere('3', bouton3);
+        gestionAffichage.setBoutonCaractere('4', bouton4);
+        gestionAffichage.setBoutonCaractere('5', bouton5);
+        gestionAffichage.setBoutonCaractere('6', bouton6);
+        gestionAffichage.setBoutonCaractere('7', bouton7);
+        gestionAffichage.setBoutonCaractere('8', bouton8);
+        gestionAffichage.setBoutonCaractere('9', bouton9);
+        gestionAffichage.setBoutonCaractere('+', boutonAdditionner);
+        gestionAffichage.setBoutonCaractere('-', boutonSoustraire);
+        gestionAffichage.setBoutonCaractere('/', boutonDiviser);
+        gestionAffichage.setBoutonCaractere('*', boutonMultiplier);
+        gestionAffichage.setBoutonCaractere('(', boutonParentheseG);
+        gestionAffichage.setBoutonCaractere(')', boutonParentheseD);
+        gestionAffichage.setBoutonCaractere('.', boutonPoint);
+    }
+
+    public void setStringAffiche(String stringAAfficher) {
+        stringAffiche.setText(stringAAfficher);
+    }
+
+    public GestionAffichage getGestionAffichage() {
+        return this.gestionAffichage;
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        gestionAffichage = new GestionAffichage();
         setBoutonsCalculatrice();
     }
 }
