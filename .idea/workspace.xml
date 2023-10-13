@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="">
+    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="La méthode efface équation est commencé, cependant le test passe pas. À vérifier">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
     </list>
@@ -53,7 +53,7 @@
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MoteurCalculTest.testEffaceEquationVariablePartagee">
+  <component name="RunManager" selected="JUnit.MoteurCalculTest (1)">
     <configuration name="CalculatriceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.CalculatriceApp" />
       <module name="calculateur-etu" />
@@ -115,8 +115,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationVariablePartagee" />
         <item itemvalue="JUnit.MoteurCalculTest (1)" />
+        <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationVariablePartagee" />
         <item itemvalue="JUnit.MoteurCalculTest" />
         <item itemvalue="Application.CalculatriceApp" />
       </list>
@@ -134,7 +134,16 @@
       <workItem from="1696265833914" duration="2947000" />
       <workItem from="1696962542397" duration="3225000" />
       <workItem from="1697034725538" duration="1355000" />
+      <workItem from="1697203277015" duration="2251000" />
     </task>
+    <task id="LOCAL-00001" summary="La méthode efface équation est commencé, cependant le test passe pas. À vérifier">
+      <created>1697119728548</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697119728549</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +159,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="La méthode efface équation est commencé, cependant le test passe pas. À vérifier" />
+    <option name="LAST_COMMIT_MESSAGE" value="La méthode efface équation est commencé, cependant le test passe pas. À vérifier" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

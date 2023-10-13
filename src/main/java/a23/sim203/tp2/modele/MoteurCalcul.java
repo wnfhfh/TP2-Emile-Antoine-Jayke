@@ -30,50 +30,65 @@ public class MoteurCalcul {
         variableMap.put(nomVariable, new Constant(nomVariable, valeur));
     }
 
-    public void ajouteEquation(String nouvelleEquation) {
-        String[] nouvelleEquationSplit = nouvelleEquation.split("=");
-        ArrayList<String> nomsVariables = new ArrayList<>();
+    public void ajouteEquation(String newEquation) {
         try {
-            Equation equation = new Equation(nouvelleEquationSplit[0], nouvelleEquationSplit[1]);
+            Equation equation = parseEquation(newEquation);
             equationMap.put(equation.getNom(), new Expression(equation.getExpression()));
-            Collections.addAll(nomsVariables, equation.getExpression().split("[+]"));
-            Collections.addAll(nomsVariables, equation.getExpression().split("[-]"));
-            Collections.addAll(nomsVariables, equation.getExpression().split("[/]"));
-            Collections.addAll(nomsVariables, equation.getExpression().split("[*]"));
-            //TODO faut ajouter nomsVariables a variableMap mais je sais pas sous quelle forme
-ajouterVariables(nomsVariables);
+            addVariablesFromEquation(equation);
         } catch (RuntimeException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Équation non valide");
         }
     }
 
-    private void ajouterVariables(ArrayList<String> nomsVariables) {
-        for (int i = 0; i < nomsVariables.size(); i++) {
-            variableMap.put(nomsVariables.get(i),Double.NaN);
+    private Equation parseEquation(String equationString) {
+        String[] equationSplit = equationString.split("=");
+
+        return new Equation(equationSplit[0], equationSplit[1]);
+    }
+
+    private void addVariablesFromEquation(Equation equation) {
+        String[] variableNames = equation.getExpression().split("[+\\-*/]");
+        for (String variableName : variableNames) {
+            variableMap.put(variableName, new Constant(variableName, Double.NaN));
         }
     }
 
-
     public void effaceEquation(String nomEquation) {
         if (equationMap.containsKey(nomEquation)) {
-            Object variableAssociee = equationMap.get(nomEquation);
+            Expression associatedExpression = (Expression) equationMap.get(nomEquation);
             equationMap.remove(nomEquation);
-            if (variableAssociee != null) {
-                variableMap.replace(variableAssociee, 0.0);
+            if (associatedExpression != null) {
+                variableMap.replace(associatedExpression.getExpressionString(), 0.0);
             }
-            for (Object variable : variableMap.keySet()) {
-                if (!equationMap.containsKey(variable)) {
-                    variableMap.remove(variable);
-                }
-            }
+            variableMap.keySet().removeIf(variable -> !equationMap.containsKey(variable));
         }
     }
 
     public double calcule(String nomEquation) {
-
-        return 0; // à changer
+        Expression expression = (Expression) equationMap.get(nomEquation);
+        if (expression != null) {
+            return expression.calculate();
+        }
+        return Double.NaN;
     }
+
+    public Set<Object> getAllVariables() {
+        return variableMap.keySet();
+    }
+
+    public Collection<Object> getAllEquations() {
+        return equationMap.values();
+    }
+
+    public HashMap<Object, Object> getVariableValues() {
+        return variableMap;
+    }
+
+    public HashMap<Object, Object> getEquationExpressions() {
+        return equationMap;
+    }
+
 
     public double calcule(Equation equation) {
 
