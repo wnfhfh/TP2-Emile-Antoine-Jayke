@@ -91,6 +91,12 @@ public class MoteurCalcul {
 
 
     public double calcule(Equation equation) {
+//        equation.getElementsRequis();
+//        equation.getExpression();
+//
+//        Expression expression = new Expression(equation.getExpression(), (PrimitiveElement) equation.getElementsRequis());
+//        expression.calculate();
+//        essayé de commencer la méthode sans succès
 
         return 0; // à changer
 

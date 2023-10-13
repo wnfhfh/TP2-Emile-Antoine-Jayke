@@ -31,4 +31,19 @@ public class GestionAffichage {
     public void setCalculatriceController(CalculatriceController calculatriceController) {
         this.calculatriceController = calculatriceController;
     }
+
+    public void actionBoutonEffacer(Button bouton){
+        bouton.setOnAction(event -> {
+            stringAffiche = "";
+            calculatriceController.setStringAffiche(stringAffiche);
+        });
+    }
+
+    public void actionBoutonReculer(Button bouton){
+        bouton.setOnAction(event -> {
+            stringAffiche = stringAffiche.substring(0,stringAffiche.length()-1);
+            calculatriceController.setStringAffiche(stringAffiche);
+        });
+    }
+
 }

@@ -132,6 +132,8 @@ public class CalculatriceController implements Initializable {
         gestionAffichage.setBoutonCaractere('(', boutonParentheseG);
         gestionAffichage.setBoutonCaractere(')', boutonParentheseD);
         gestionAffichage.setBoutonCaractere('.', boutonPoint);
+        gestionAffichage.actionBoutonReculer(boutonReculer);
+        gestionAffichage.actionBoutonEffacer(boutonEffacer);
     }
 
     public void setStringAffiche(String stringAAfficher) {
