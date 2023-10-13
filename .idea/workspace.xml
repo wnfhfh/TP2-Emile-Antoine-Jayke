@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="La méthode efface équation est commencé, cependant le test passe pas. À vérifier">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="Boutons Effacer et Reculer fonctionnent">
+      <changelist_data name="EmileRoy" email="a@.com" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="EmileRoy &lt;a@.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -140,7 +144,7 @@
       <workItem from="1697034725538" duration="1355000" />
       <workItem from="1697203277015" duration="2251000" />
       <workItem from="1697210698062" duration="92000" />
-      <workItem from="1697210823622" duration="9116000" />
+      <workItem from="1697210823622" duration="11974000" />
     </task>
     <task id="LOCAL-00001" summary="La méthode efface équation est commencé, cependant le test passe pas. À vérifier">
       <created>1697119728548</created>
@@ -149,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697119728549</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Boutons Effacer et Reculer fonctionnent">
+      <created>1697222511687</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697222511687</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +179,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="La méthode efface équation est commencé, cependant le test passe pas. À vérifier" />
-    <option name="LAST_COMMIT_MESSAGE" value="La méthode efface équation est commencé, cependant le test passe pas. À vérifier" />
+    <MESSAGE value="Boutons Effacer et Reculer fonctionnent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Boutons Effacer et Reculer fonctionnent" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
