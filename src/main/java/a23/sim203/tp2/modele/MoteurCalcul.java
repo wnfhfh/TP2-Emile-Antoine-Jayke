@@ -1,20 +1,24 @@
 package a23.sim203.tp2.modele;
 
 import javafx.scene.control.Alert;
-import org.mariuszgromada.math.mxparser.*;
+import org.mariuszgromada.math.mxparser.Constant;
+import org.mariuszgromada.math.mxparser.Expression;
+import org.mariuszgromada.math.mxparser.License;
 
 import java.util.*;
 
 public class MoteurCalcul {
 
     // ajoutez les attributs pour stocker les équations et les variables
-    private HashMap<Object, Object> variableMap;
-    private HashMap<Object, Object> equationMap;
+    private HashMap<String, Constant> variableMap;
+    private HashMap<String, Equation> equationMap;
+    private HashMap<String, Object> equationEtVariableMap;
 
     public MoteurCalcul() {
         License.iConfirmNonCommercialUse("Cegep Limoilou");
         variableMap = new HashMap<>();
         equationMap = new HashMap<>();
+        equationEtVariableMap = new HashMap<>();
 
     }
 
@@ -33,7 +37,8 @@ public class MoteurCalcul {
     public void ajouteEquation(String newEquation) {
         try {
             Equation equation = parseEquation(newEquation);
-            equationMap.put(equation.getNom(), new Expression(equation.getExpression()));
+            equationMap.put(equation.getNom(), equation);
+            equationEtVariableMap.put(equation.getNom(), equation);
             addVariablesFromEquation(equation);
         } catch (RuntimeException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -48,44 +53,65 @@ public class MoteurCalcul {
     }
 
     private void addVariablesFromEquation(Equation equation) {
-        String[] variableNames = equation.getExpression().split("[+\\-*/]");
-        for (String variableName : variableNames) {
-            variableMap.put(variableName, new Constant(variableName, Double.NaN));
+        Set<String> elementsRequis = equation.getElementsRequis();
+        Iterator<String> iterator = elementsRequis.iterator();
+        while (iterator.hasNext()) {
+            String nomVariable = iterator.next();
+            if (!equationEtVariableMap.containsKey(nomVariable)) {
+                ajouteVariable(nomVariable, 0.0);
+                equationEtVariableMap.put(nomVariable, 0.0);
+            }
         }
     }
 
     public void effaceEquation(String nomEquation) {
         if (equationMap.containsKey(nomEquation)) {
-            Expression associatedExpression = (Expression) equationMap.get(nomEquation);
+            Equation equation = equationMap.get(nomEquation);
+            Expression associatedExpression = new Expression(equation.getExpression());
             equationMap.remove(nomEquation);
             if (associatedExpression != null) {
-                variableMap.replace(associatedExpression.getExpressionString(), 0.0);
+                variableMap.replace(associatedExpression.getExpressionString(), new Constant(associatedExpression.getExpressionString(), 0.0));
             }
             variableMap.keySet().removeIf(variable -> !equationMap.containsKey(variable));
         }
     }
 
     public double calcule(String nomEquation) {
-        Expression expression = (Expression) equationMap.get(nomEquation);
-        if (expression != null) {
-            return expression.calculate();
+        Equation equation = equationMap.get(nomEquation);
+        Double resultat = 0.0;
+        Set<String> elementsRequis = equation.getElementsRequis();
+        ArrayList<Constant> constants = new ArrayList();
+
+        for (String element : elementsRequis) {
+            if (variableMap.containsKey(element))
+                constants.add(variableMap.get(element));
         }
-        return Double.NaN;
+
+        String expressionStringTemp = equation.getExpression();
+        for (int i = 0; i < constants.size(); i++) {
+            expressionStringTemp = expressionStringTemp.replace(constants.get(i).getConstantName(), Double.toString(constants.get(i).getConstantValue()));
+        }
+        System.out.println(expressionStringTemp);
+        resultat = new Expression(expressionStringTemp).calculate();
+//        if (expression != null) {
+//            resultat = expression.calculate();
+//        }
+        return resultat;
     }
 
-    public Set<Object> getAllVariables() {
+    public Set<String> getAllVariables() {
         return variableMap.keySet();
     }
 
-    public Collection<Object> getAllEquations() {
+    public Collection<Equation> getAllEquations() {
         return equationMap.values();
     }
 
-    public HashMap<Object, Object> getVariableValues() {
+    public HashMap<String, Constant> getVariableValues() {
         return variableMap;
     }
 
-    public HashMap<Object, Object> getEquationExpressions() {
+    public HashMap<String, Equation> getEquationExpressions() {
         return equationMap;
     }
 
@@ -119,12 +145,12 @@ public class MoteurCalcul {
     }
 
 
-    public Map<Object, Object> getVariableValueMap() {
+    public Map<String, Constant> getVariableValueMap() {
         return variableMap; // à changer
     }
 
-    public Map<Object, Object> getEquationMap() {
-        return variableMap;
+    public Map<String, Equation> getEquationMap() {
+        return equationMap;
     }
 
     public static void main(String[] args) {
@@ -135,7 +161,6 @@ public class MoteurCalcul {
 
         Constant A0 = new Constant("a0", 3);
         Constant B0 = new Constant("b0", 3);
-
 
         Expression e1 = new Expression("3+4+a0+b0", A0, B0);
         Expression e2 = new Expression("3+4+a0+b0", new Constant[]{A0, B0});// alternative avec tableau
