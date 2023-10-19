@@ -69,9 +69,7 @@ public class MoteurCalcul {
             Equation equation = equationMap.get(nomEquation);
             Expression associatedExpression = new Expression(equation.getExpression());
             equationMap.remove(nomEquation);
-            if (associatedExpression != null) {
-                variableMap.replace(associatedExpression.getExpressionString(), new Constant(associatedExpression.getExpressionString(), 0.0));
-            }
+            variableMap.replace(associatedExpression.getExpressionString(), new Constant(associatedExpression.getExpressionString(), 0.0));
             variableMap.keySet().removeIf(variable -> !equationMap.containsKey(variable));
         }
     }
@@ -91,11 +89,11 @@ public class MoteurCalcul {
         for (int i = 0; i < constants.size(); i++) {
             expressionStringTemp = expressionStringTemp.replace(constants.get(i).getConstantName(), Double.toString(constants.get(i).getConstantValue()));
         }
-        System.out.println(expressionStringTemp);
+
+
         resultat = new Expression(expressionStringTemp).calculate();
-//        if (expression != null) {
-//            resultat = expression.calculate();
-//        }
+
+
         return resultat;
     }
 
@@ -117,31 +115,38 @@ public class MoteurCalcul {
 
 
     public double calcule(Equation equation) {
-//        equation.getElementsRequis();
-//        equation.getExpression();
-//
-//        Expression expression = new Expression(equation.getExpression(), (PrimitiveElement) equation.getElementsRequis());
-//        expression.calculate();
-//        essayé de commencer la méthode sans succès
+        Double resultat = 0.0;
+        Set<String> elementsRequis = equation.getElementsRequis();
+        ArrayList<Constant> constants = new ArrayList();
 
-        return 0; // à changer
+        for (String element : elementsRequis) {
+            if (variableMap.containsKey(element))
+                constants.add(variableMap.get(element));
+        }
 
+        String expressionStringTemp = equation.getExpression();
+        for (int i = 0; i < constants.size(); i++) {
+            expressionStringTemp = expressionStringTemp.replace(constants.get(i).getConstantName(), Double.toString(constants.get(i).getConstantValue()));
+        }
+        resultat = new Expression(expressionStringTemp).calculate();
+
+        return resultat;
     }
 
     public Collection<String> getToutesLesVariables() {
         HashSet<String> toutesLesVariables = new HashSet<String>();
 
-        Iterator iterator = variableMap.values().iterator();
-        while (iterator.hasNext()) {
-            Expression expressionTemp = (Expression) iterator.next();
+        Iterator<Constant> iteratorValues = variableMap.values().iterator();
+        while (iteratorValues.hasNext()) {
+            Constant constantTemp = iteratorValues.next();
+            toutesLesVariables.add(constantTemp.getConstantName() + " = " + constantTemp.getConstantValue());
         }
 
-        return toutesLesVariables; // à changer
+        return toutesLesVariables;
     }
 
-    public Equation getToutesLesEquations() {
-        return null; // à changer
-
+    public Collection<Equation> getToutesLesEquations() {
+        return equationMap.values();
     }
 
 
@@ -155,7 +160,7 @@ public class MoteurCalcul {
 
     public static void main(String[] args) {
 
-        // Comment utiliser les expression avec plusieurs variables
+        // Comment utiliser les expressions avec plusieurs variables
 
         License.iConfirmNonCommercialUse("Cegep Limoilou");
 

@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mariuszgromada.math.mxparser.Constant;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -135,4 +136,34 @@ class MoteurCalculTest {
         assertEquals(36, resultat);
     }
 
+    @Test
+    public void testGetToutesLesVariables() {
+        moteurCalcul.setValeurVariable("a0", 2.0);
+        moteurCalcul.setValeurVariable("a1", 5.5);
+        moteurCalcul.setValeurVariable("a2", Double.NaN);
+
+        HashSet<String> setValidation = new HashSet<String>();
+        setValidation.add("a0 = 2.0");
+        setValidation.add("a1 = 5.5");
+        setValidation.add("a2 = NaN");
+        assertEquals(moteurCalcul.getToutesLesVariables(), setValidation);
+
+        moteurCalcul.setValeurVariable("a0", 3.0);
+        setValidation.remove("a0 = 2.0");
+        setValidation.add("a0 = 3.0");
+        assertEquals(moteurCalcul.getToutesLesVariables(), setValidation);
+    }
+
+    @Test
+    public void testGetToutesLesEquations() {
+        moteurCalcul.ajouteEquation("a0=2*b0");
+        moteurCalcul.ajouteEquation("a1=2+2");
+        moteurCalcul.ajouteEquation("a2=a0*b0");
+
+        HashSet<Equation> setValidation = new HashSet<Equation>();
+        setValidation.add(new Equation("a0", "2*b0"));
+        setValidation.add(new Equation("a1", "2+2"));
+        setValidation.add(new Equation("a2", "a0*b0"));
+        assertEquals(moteurCalcul.getToutesLesEquations(), setValidation);
+    }
 }

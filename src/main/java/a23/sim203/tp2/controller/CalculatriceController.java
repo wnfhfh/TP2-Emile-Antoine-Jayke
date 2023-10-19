@@ -2,20 +2,26 @@ package a23.sim203.tp2.controller;
 
 import a23.sim203.tp2.app.GestionAffichage;
 import a23.sim203.tp2.modele.MoteurCalcul;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 
+import javax.security.auth.callback.Callback;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CalculatriceController implements Initializable {
 
     GestionAffichage gestionAffichage;
+
+    @FXML
+    private MenuItem menuItemAPropos;
 
     @FXML
     private Button bouton0;
@@ -90,7 +96,7 @@ public class CalculatriceController implements Initializable {
     private Button boutonVariable;
 
     @FXML
-    private ListView<?> listeVariables;
+    private ListView<String> listeVariables;
 
     @FXML
     private ListView<?> listeÉquations;
@@ -100,9 +106,6 @@ public class CalculatriceController implements Initializable {
 
     @FXML
     private Menu menuAssistance;
-
-    @FXML
-    private CheckMenuItem menuItemAPropos;
 
     @FXML
     private CheckMenuItem menuItemAssistanceVisuelle;
@@ -138,6 +141,10 @@ public class CalculatriceController implements Initializable {
         gestionAffichage.actionBoutonEgal(boutonEgal);
     }
 
+    private void createListeVariables() {
+        //TODO setCellFactory()
+    }
+
     public void setStringAffiche(String stringAAfficher) {
         stringAffiche.setText(stringAAfficher);
     }
@@ -150,5 +157,6 @@ public class CalculatriceController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         gestionAffichage = new GestionAffichage();
         setBoutonsCalculatrice();
+        createListeVariables();
     }
 }

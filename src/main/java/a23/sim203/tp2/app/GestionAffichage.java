@@ -42,8 +42,10 @@ public class GestionAffichage {
 
     public void actionBoutonReculer(Button bouton) {
         bouton.setOnAction(event -> {
-            stringAffiche = stringAffiche.substring(0, stringAffiche.length() - 1);
-            calculatriceController.setStringAffiche(stringAffiche);
+            if (stringAffiche.length() >= 1) {
+                stringAffiche = stringAffiche.substring(0, stringAffiche.length() - 1);
+                calculatriceController.setStringAffiche(stringAffiche);
+            }
         });
     }
 
@@ -62,8 +64,7 @@ public class GestionAffichage {
     public void actionBoutonEgal(Button bouton) {
         bouton.setOnAction(event -> {
 
-
-//            créerAlerteBoutonÉgal();          Va devoir être mise dans un if
+//      TODO      créerAlerteBoutonÉgal();          Va devoir être mise dans un if
         });
     }
 
