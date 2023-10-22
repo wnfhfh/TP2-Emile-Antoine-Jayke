@@ -34,15 +34,25 @@ public class MoteurCalcul {
         variableMap.put(nomVariable, new Constant(nomVariable, valeur));
     }
 
-    public void ajouteEquation(String newEquation) {
+    public void ajouteEquation(String nouvelleEquation) {
         try {
-            Equation equation = parseEquation(newEquation);
+            Equation equation = parseEquation(nouvelleEquation);
             equationMap.put(equation.getNom(), equation);
             equationEtVariableMap.put(equation.getNom(), equation);
             addVariablesFromEquation(equation);
+            if (equationEtVariableMap.containsKey(equation.getNom())) {
+                variableMap.remove(equation.getNom());
+            }
         } catch (RuntimeException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Équation non valide");
+        }
+    }
+
+    private void retireVariableInutile(Equation equation){
+        Set<String> variableInutile = equation.getElementsRequis();
+        if (!getAllEquations().contains(variableInutile)){
+
         }
     }
 
@@ -57,7 +67,7 @@ public class MoteurCalcul {
         Iterator<String> iterator = elementsRequis.iterator();
         while (iterator.hasNext()) {
             String nomVariable = iterator.next();
-            if (!equationEtVariableMap.containsKey(nomVariable)) {
+            if (!equationEtVariableMap.containsKey(nomVariable)){
                 ajouteVariable(nomVariable, 0.0);
                 equationEtVariableMap.put(nomVariable, 0.0);
             }
@@ -84,7 +94,6 @@ public class MoteurCalcul {
             if (variableMap.containsKey(element))
                 constants.add(variableMap.get(element));
         }
-
         String expressionStringTemp = equation.getExpression();
         for (int i = 0; i < constants.size(); i++) {
             expressionStringTemp = expressionStringTemp.replace(constants.get(i).getConstantName(), Double.toString(constants.get(i).getConstantValue()));

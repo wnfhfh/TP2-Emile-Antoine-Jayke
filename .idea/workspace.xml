@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="">
+    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="Boutons Effacer et Reculer fonctionnent">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,23 +36,23 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Desktop/Prog2023/Session 3/formatif-5-tableView-etu-ecole",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Desktop/Prog2023/Session 3/formatif-5-tableView-etu-ecole&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\src\main" />
@@ -64,24 +60,21 @@
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MoteurCalculTest.testGetToutesLesEquations">
-    <configuration name="MoteurCalculTest.testCalcul1Variable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MoteurCalculTest">
+    <configuration name="CalculatriceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.CalculatriceApp" />
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="a23.sim203.tp2.modele.*" />
+          <option name="PATTERN" value="a23.sim203.tp2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
-      <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testCalcul1Variable" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoteurCalculTest.testCalcul2Variable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoteurCalculTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
@@ -91,13 +84,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testCalcul2Variable" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoteurCalculTest.testCalculSimple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoteurCalculTest.testAjoute1Variable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
@@ -107,7 +99,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testCalculSimple" />
+      <option name="METHOD_NAME" value="testAjoute1Variable" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MoteurCalculTest" />
         <item itemvalue="JUnit.MoteurCalculTest.testGetToutesLesEquations" />
+        <item itemvalue="Application.CalculatriceApp" />
+        <item itemvalue="JUnit.MoteurCalculTest.testAjoute1Variable" />
         <item itemvalue="JUnit.MoteurCalculTest.testGetToutesLesVariables" />
-        <item itemvalue="JUnit.MoteurCalculTest.testCalcul2Variable" />
-        <item itemvalue="JUnit.MoteurCalculTest.testCalcul1Variable" />
-        <item itemvalue="JUnit.MoteurCalculTest.testCalculSimple" />
       </list>
     </recent_temporary>
   </component>
@@ -175,6 +167,7 @@
       <workItem from="1697730322040" duration="1767000" />
       <workItem from="1697733666748" duration="44000" />
       <workItem from="1697736301140" duration="3099000" />
+      <workItem from="1697979826056" duration="7811000" />
     </task>
     <task id="LOCAL-00001" summary="La méthode efface équation est commencé, cependant le test passe pas. À vérifier">
       <created>1697119728548</created>
@@ -223,14 +216,15 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>76</line>
-          <properties class="a23.sim203.tp2.modele.MoteurCalculTest" method="testEffaceEquationVariablePartagee">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
+          <line>26</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
+          <line>166</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
