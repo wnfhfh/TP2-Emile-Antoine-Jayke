@@ -102,24 +102,12 @@ public class MoteurCalcul {
     }
 
     public double calcule(String nomEquation) {
-        Equation equation = equationMap.get(nomEquation);
         Double resultat = Double.NaN;
-        Set<String> elementsRequis = equation.getElementsRequis();
-        ArrayList<Constant> constants = new ArrayList();
-
-        for (String element : elementsRequis) {
-            if (variableMap.containsKey(element))
-                constants.add(variableMap.get(element));
+        if (nomEquation.length() == 2) {
+            resultat = calcule(equationMap.get(nomEquation));
+        } else {
+            resultat = calcule(new Equation("o9", nomEquation));
         }
-        String expressionStringTemp = equation.getExpression();
-        for (int i = 0; i < constants.size(); i++) {
-            expressionStringTemp = expressionStringTemp.replace(constants.get(i).getConstantName(), Double.toString(constants.get(i).getConstantValue()));
-        }
-
-
-        resultat = new Expression(expressionStringTemp).calculate();
-
-
         return resultat;
     }
 

@@ -63,12 +63,12 @@ public class GestionAffichage {
 
     public void actionBoutonEgal(Button bouton) {
         bouton.setOnAction(event -> {
-
-//      TODO      créerAlerteBoutonÉgal();          Va devoir être mise dans un if
+            double reponse = moteurCalcul.calcule(stringAffiche);
+            calculatriceController.setStringAffiche(String.valueOf(reponse));
         });
     }
 
-    public void créerAlerteBoutonÉgal() {
+    public void creerAlerteBoutonEgal() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("Expression invalide");
         alert.setTitle("Calculateur avancée");

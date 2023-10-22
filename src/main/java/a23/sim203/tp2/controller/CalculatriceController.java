@@ -111,7 +111,7 @@ public class CalculatriceController implements Initializable {
     private ToggleButton toggleBoutonLire;
 
     @FXML
-    private TextField stringAffiche;
+    private TextField stringAffiche;    // TODO Changer ID dans SceneBuilder
 
     @FXML
     void setBoutonsCalculatrice() {
@@ -136,6 +136,7 @@ public class CalculatriceController implements Initializable {
         gestionAffichage.actionBoutonEffacer(boutonEffacer);
         gestionAffichage.actionBoutonPlusMinus(boutonPlusMinus);
         gestionAffichage.actionBoutonEgal(boutonEgal);
+        actionAssistanceVisuelle(menuItemAssistanceVisuelle);
     }
 
     private void createListeVariables() {
@@ -167,5 +168,25 @@ public class CalculatriceController implements Initializable {
         setBoutonsCalculatrice();
         createListeVariables();
         createMenuAPropos();
+    }
+
+
+    public void actionAssistanceVisuelle(CheckMenuItem bouton) {
+        bouton.setOnAction(event -> {
+            boolean isSelected = bouton.isSelected();
+            if(isSelected){
+                bouton0.setOnMouseEntered(event1 -> {
+                    bouton0.setStyle("-fx-font-size: 35;");
+                });
+
+                bouton0.setOnMouseExited(event1 -> {
+                    bouton0.setStyle("-fx-font-size: 25;");
+                });
+
+            }
+
+//            bouton0.setOnMouseEntered(isSelected ? e -> bouton0.setStyle("-fx-font-size: 35") : null);
+//            bouton0.setOnMouseExited(isSelected ? e -> bouton0.setStyle("-fx-font-size: 25") : null);
+        });
     }
 }
