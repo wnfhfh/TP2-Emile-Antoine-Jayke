@@ -40,20 +40,37 @@ public class MoteurCalcul {
             equationMap.put(equation.getNom(), equation);
             equationEtVariableMap.put(equation.getNom(), equation);
             addVariablesFromEquation(equation);
-            if (equationEtVariableMap.containsKey(equation.getNom())) {
+            if (variableMap.containsKey(equation.getNom())) {
                 variableMap.remove(equation.getNom());
             }
+            retireVariablesInutiles();
         } catch (RuntimeException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Équation non valide");
         }
     }
 
-    private void retireVariableInutile(Equation equation){
-        Set<String> variableInutile = equation.getElementsRequis();
-        if (!getAllEquations().contains(variableInutile)){
+    private void retireVariablesInutiles() {
+        Set<String> variablesInutiles = getAllVariables();
+        variablesInutiles.removeAll(getAllElementsRequis());
 
+        Iterator<String> iterator = variablesInutiles.iterator();
+        if (variablesInutiles.size() > 0) {
+            while (iterator.hasNext()) {
+                String variableTemp = iterator.next();
+                variableMap.remove(variableTemp);
+                equationEtVariableMap.remove(variableTemp);
+            }
         }
+    }
+
+    private Set<String> getAllElementsRequis() {
+        Set<String> variablesRequises = new HashSet<>();
+        Iterator<Equation> iterator = equationMap.values().iterator();
+        while (iterator.hasNext()) {
+            variablesRequises.addAll(iterator.next().getElementsRequis());
+        }
+        return variablesRequises;
     }
 
     private Equation parseEquation(String equationString) {
@@ -67,9 +84,9 @@ public class MoteurCalcul {
         Iterator<String> iterator = elementsRequis.iterator();
         while (iterator.hasNext()) {
             String nomVariable = iterator.next();
-            if (!equationEtVariableMap.containsKey(nomVariable)){
-                ajouteVariable(nomVariable, 0.0);
-                equationEtVariableMap.put(nomVariable, 0.0);
+            if (!equationEtVariableMap.containsKey(nomVariable)) {
+                ajouteVariable(nomVariable, Double.NaN);
+                equationEtVariableMap.put(nomVariable, Double.NaN);
             }
         }
     }
@@ -79,14 +96,14 @@ public class MoteurCalcul {
             Equation equation = equationMap.get(nomEquation);
             Expression associatedExpression = new Expression(equation.getExpression());
             equationMap.remove(nomEquation);
-            variableMap.replace(associatedExpression.getExpressionString(), new Constant(associatedExpression.getExpressionString(), 0.0));
+            variableMap.replace(associatedExpression.getExpressionString(), new Constant(associatedExpression.getExpressionString(), Double.NaN));
             variableMap.keySet().removeIf(variable -> !equationMap.containsKey(variable));
         }
     }
 
     public double calcule(String nomEquation) {
         Equation equation = equationMap.get(nomEquation);
-        Double resultat = 0.0;
+        Double resultat = Double.NaN;
         Set<String> elementsRequis = equation.getElementsRequis();
         ArrayList<Constant> constants = new ArrayList();
 
@@ -124,7 +141,7 @@ public class MoteurCalcul {
 
 
     public double calcule(Equation equation) {
-        Double resultat = 0.0;
+        Double resultat = Double.NaN;
         Set<String> elementsRequis = equation.getElementsRequis();
         ArrayList<Constant> constants = new ArrayList();
 

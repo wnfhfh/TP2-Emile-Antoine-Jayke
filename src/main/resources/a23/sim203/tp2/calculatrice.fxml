@@ -76,7 +76,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="stringAffiche" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" text="gggg" GridPane.columnSpan="3" GridPane.hgrow="NEVER" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
+                  <TextField fx:id="stringAffiche" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: black;" text="Affichage" GridPane.columnSpan="3" GridPane.hgrow="NEVER" GridPane.rowSpan="2" GridPane.vgrow="NEVER">
                      <font>
                         <Font size="24.0" />
                      </font></TextField>

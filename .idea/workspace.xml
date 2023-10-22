@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="Boutons Effacer et Reculer fonctionnent">
+    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="ajouteEquation ameliore, retireVariablesInutiles cree">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +18,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="EmileAntoineJayke &lt;a@.com&gt;" />
         <option value="EmileAntoineJayke &lt;a@.com&gt; &lt;a@.com&gt;" />
         <option value="EmileRoy &lt;a@.com&gt;" />
       </list>
@@ -60,7 +63,7 @@
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MoteurCalculTest">
+  <component name="RunManager" selected="JUnit.MoteurCalculTest.testAjoute1Variable">
     <configuration name="CalculatriceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.CalculatriceApp" />
       <module name="calculateur-etu" />
@@ -139,10 +142,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MoteurCalculTest.testAjoute1Variable" />
         <item itemvalue="JUnit.MoteurCalculTest" />
         <item itemvalue="JUnit.MoteurCalculTest.testGetToutesLesEquations" />
         <item itemvalue="Application.CalculatriceApp" />
-        <item itemvalue="JUnit.MoteurCalculTest.testAjoute1Variable" />
         <item itemvalue="JUnit.MoteurCalculTest.testGetToutesLesVariables" />
       </list>
     </recent_temporary>
@@ -218,13 +221,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
           <line>166</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

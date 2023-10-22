@@ -102,9 +102,6 @@ public class CalculatriceController implements Initializable {
     private ListView<?> listeÉquations;
 
     @FXML
-    private Menu menuAide;
-
-    @FXML
     private Menu menuAssistance;
 
     @FXML
@@ -145,6 +142,17 @@ public class CalculatriceController implements Initializable {
         //TODO setCellFactory()
     }
 
+    private void createMenuAPropos() {
+        menuItemAPropos.setOnAction(event -> {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Cours de programmation 203 en SIM\n" +
+                    "Cégep Limoilou A23\n" +
+                    "par: Émile Roy, Jayke Gagné et Antoine Houde :)");
+            alert.setHeaderText("SIM 203");
+            alert.setTitle("Calculateur Avancé");
+            alert.show();
+        });
+    }
+
     public void setStringAffiche(String stringAAfficher) {
         stringAffiche.setText(stringAAfficher);
     }
@@ -158,5 +166,6 @@ public class CalculatriceController implements Initializable {
         gestionAffichage = new GestionAffichage();
         setBoutonsCalculatrice();
         createListeVariables();
+        createMenuAPropos();
     }
 }
