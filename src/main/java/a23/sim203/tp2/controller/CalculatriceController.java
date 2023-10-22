@@ -19,97 +19,69 @@ import java.util.ResourceBundle;
 public class CalculatriceController implements Initializable {
 
     GestionAffichage gestionAffichage;
-
     @FXML
     private MenuItem menuItemAPropos;
-
     @FXML
     private Button bouton0;
-
     @FXML
     private Button bouton1;
-
     @FXML
     private Button bouton2;
-
     @FXML
     private Button bouton3;
-
     @FXML
     private Button bouton4;
-
     @FXML
     private Button bouton5;
-
     @FXML
     private Button bouton6;
-
     @FXML
     private Button bouton7;
-
     @FXML
     private Button bouton8;
-
     @FXML
     private Button bouton9;
-
     @FXML
     private Button boutonAdditionner;
-
     @FXML
     private Button boutonAjoute;
-
     @FXML
     private Button boutonDiviser;
-
     @FXML
     private Button boutonEffacer;
-
     @FXML
     private Button boutonEgal;
-
     @FXML
     private Button boutonMultiplier;
-
     @FXML
     private Button boutonParentheseD;
-
     @FXML
     private Button boutonParentheseG;
-
     @FXML
     private Button boutonPlusMinus;
-
     @FXML
     private Button boutonPoint;
-
     @FXML
     private Button boutonReculer;
-
     @FXML
     private Button boutonSoustraire;
-
     @FXML
     private Button boutonSupprime;
-
     @FXML
     private Button boutonVariable;
-
     @FXML
     private ListView<String> listeVariables;
 
     @FXML
-    private ListView<?> listeÉquations;
-
+    private GridPane gridPane;
+    @FXML
+    private ListView<?> listeEquations;
     @FXML
     private Menu menuAssistance;
-
     @FXML
     private CheckMenuItem menuItemAssistanceVisuelle;
-
     @FXML
     private ToggleButton toggleBoutonLire;
-
     @FXML
     private TextField stringAffiche;    // TODO Changer ID dans SceneBuilder
 
@@ -136,11 +108,12 @@ public class CalculatriceController implements Initializable {
         gestionAffichage.actionBoutonEffacer(boutonEffacer);
         gestionAffichage.actionBoutonPlusMinus(boutonPlusMinus);
         gestionAffichage.actionBoutonEgal(boutonEgal);
+        gestionAffichage.actionBoutonAjoute(boutonAjoute);
         actionAssistanceVisuelle(menuItemAssistanceVisuelle);
     }
 
     private void createListeVariables() {
-        //TODO setCellFactory()
+        listeVariables.setCellFactory(param -> new ListCell<>());
     }
 
     private void createMenuAPropos() {
@@ -160,6 +133,22 @@ public class CalculatriceController implements Initializable {
 
     public GestionAffichage getGestionAffichage() {
         return this.gestionAffichage;
+    }
+
+    public ListView<String> getListeVariables() {
+        return listeVariables;
+    }
+
+    public ListView<?> getListeEquations() {
+        return listeEquations;
+    }
+
+    public TextField getStringAffiche() {
+        return stringAffiche;
+    }
+
+    public String getStringAfficheTexte() {
+        return stringAffiche.getText();
     }
 
     @Override

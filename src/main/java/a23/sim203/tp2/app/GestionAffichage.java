@@ -76,4 +76,13 @@ public class GestionAffichage {
         alert.showAndWait();
     }
 
+    public void actionBoutonAjoute(Button bouton) {
+        bouton.setOnMouseClicked(event -> {
+            moteurCalcul.ajouteEquation(calculatriceController.getStringAfficheTexte());
+            calculatriceController.getListeVariables().getItems().add(moteurCalcul.getEquationMap().get((calculatriceController.getStringAfficheTexte()).substring(0,2)).toString());
+            calculatriceController.getListeVariables().refresh();
+
+            //TODO ajouter un try pour catch quand cest pas une equation et faire afficher les equations
+        });
+    }
 }

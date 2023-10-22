@@ -129,7 +129,7 @@ public class MoteurCalcul {
 
 
     public double calcule(Equation equation) {
-        Double resultat = Double.NaN;
+        Double resultat;
         Set<String> elementsRequis = equation.getElementsRequis();
         ArrayList<Constant> constants = new ArrayList();
 
@@ -159,13 +159,8 @@ public class MoteurCalcul {
         return toutesLesVariables;
     }
 
-    public Collection<Equation> getToutesLesEquations() {
-        return equationMap.values();
-    }
-
-
     public Map<String, Constant> getVariableValueMap() {
-        return variableMap; // à changer
+        return variableMap;
     }
 
     public Map<String, Equation> getEquationMap() {
