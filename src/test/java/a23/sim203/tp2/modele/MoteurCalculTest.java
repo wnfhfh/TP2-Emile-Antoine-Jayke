@@ -129,9 +129,9 @@ class MoteurCalculTest {
     @Test
     public void testCalcul2Equation2Var() {
         moteurCalcul.ajouteEquation("a0=b0*c2");
-        moteurCalcul.ajouteEquation("b0=c2+g77");
+        moteurCalcul.ajouteEquation("b0=c2+g7");
         moteurCalcul.setValeurVariable("c2", 4);
-        moteurCalcul.setValeurVariable("g77", 5);
+        moteurCalcul.setValeurVariable("g7", 5);
         double resultat = moteurCalcul.calcule("a0");
         assertEquals(36, resultat);
     }
@@ -155,7 +155,7 @@ class MoteurCalculTest {
     }
 
     @Test
-    public void testGetToutesLesEquations() {
+    public void testGetAllEquations() {
         moteurCalcul.ajouteEquation("a0=2*b0");
         moteurCalcul.ajouteEquation("a1=2+2");
         moteurCalcul.ajouteEquation("a2=a0*b0");
@@ -164,6 +164,6 @@ class MoteurCalculTest {
         setValidation.add(new Equation("a0", "2*b0"));
         setValidation.add(new Equation("a1", "2+2"));
         setValidation.add(new Equation("a2", "a0*b0"));
-        assertEquals(moteurCalcul.getToutesLesEquations(), setValidation);
+        assertEquals(moteurCalcul.getAllEquations(), setValidation);
     }
 }

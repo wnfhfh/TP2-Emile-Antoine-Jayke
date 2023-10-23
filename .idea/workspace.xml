@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,23 +46,23 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Desktop/Prog2023/Session 3/TP2-Emile-Antoine-Jayke",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Desktop/Prog2023/Session 3/TP2-Emile-Antoine-Jayke&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\src\main" />
@@ -71,26 +70,13 @@
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CalculatriceApp">
+  <component name="RunManager" selected="JUnit.MoteurCalculTest">
     <configuration name="CalculatriceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.CalculatriceApp" />
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="a23.sim203.tp2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MoteurCalcul" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalcul" />
-      <module name="calculateur-etu" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="a23.sim203.tp2.modele.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -129,7 +115,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoteurCalculTest.testGetToutesLesEquations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoteurCalculTest.testCalcul2Equation2Var" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
@@ -139,7 +125,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testGetToutesLesEquations" />
+      <option name="METHOD_NAME" value="testCalcul2Equation2Var" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MoteurCalculTest.testGetAllEquations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="calculateur-etu" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="a23.sim203.tp2.modele.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
+      <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
+      <option name="METHOD_NAME" value="testGetAllEquations" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -147,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CalculatriceApp" />
         <item itemvalue="JUnit.MoteurCalculTest" />
+        <item itemvalue="JUnit.MoteurCalculTest.testCalcul2Equation2Var" />
+        <item itemvalue="JUnit.MoteurCalculTest.testGetAllEquations" />
+        <item itemvalue="Application.CalculatriceApp" />
         <item itemvalue="JUnit.MoteurCalculTest.testAjoute1Variable" />
-        <item itemvalue="JUnit.MoteurCalculTest.testGetToutesLesEquations" />
-        <item itemvalue="JUnit.MoteurCalculTest.testGetToutesLesVariables" />
       </list>
     </recent_temporary>
   </component>
@@ -234,16 +236,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>166</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
           <line>108</line>
           <option name="timeStamp" value="12" />
@@ -252,6 +244,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java</url>
           <line>81</line>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

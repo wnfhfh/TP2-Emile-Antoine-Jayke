@@ -43,7 +43,7 @@ public class MoteurCalcul {
             if (variableMap.containsKey(equation.getNom())) {
                 variableMap.remove(equation.getNom());
             }
-            retireVariablesInutiles();
+//            retireVariablesInutiles();
         } catch (RuntimeException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Équation non valide");
@@ -130,7 +130,11 @@ public class MoteurCalcul {
 
     public double calcule(Equation equation) {
         Double resultat;
-        Set<String> elementsRequis = equation.getElementsRequis();
+
+        String expressionStringTemp = equation.getExpression();
+        expressionStringTemp = remplacerEquations(expressionStringTemp);
+
+        Set<String> elementsRequis = new Equation("a0", expressionStringTemp).getElementsRequis();
         ArrayList<Constant> constants = new ArrayList();
 
         for (String element : elementsRequis) {
@@ -138,13 +142,26 @@ public class MoteurCalcul {
                 constants.add(variableMap.get(element));
         }
 
-        String expressionStringTemp = equation.getExpression();
         for (int i = 0; i < constants.size(); i++) {
             expressionStringTemp = expressionStringTemp.replace(constants.get(i).getConstantName(), Double.toString(constants.get(i).getConstantValue()));
         }
         resultat = new Expression(expressionStringTemp).calculate();
 
         return resultat;
+    }
+
+    private String remplacerEquations(String expressionStringTemp) {
+        String equationDecompressee = "";
+        Set<String> equations = equationMap.keySet();
+
+        Iterator<String> iterator = equations.iterator();
+        while (iterator.hasNext()) {
+            String nomEquationTemp = iterator.next();
+            String equationUpdate = expressionStringTemp.replace(nomEquationTemp, '(' + equationMap.get(nomEquationTemp).getExpression() + ')');
+            if (equationUpdate.length() > equationDecompressee.length()) equationDecompressee = equationUpdate;
+        }
+        if (equationDecompressee == expressionStringTemp) return equationDecompressee;
+        else return remplacerEquations(equationDecompressee);
     }
 
     public Collection<String> getToutesLesVariables() {
