@@ -1,5 +1,6 @@
 package a23.sim203.tp2.modele;
 
+import a23.sim203.tp2.app.GestionAffichage;
 import javafx.scene.control.Alert;
 import org.mariuszgromada.math.mxparser.Constant;
 import org.mariuszgromada.math.mxparser.Expression;
@@ -38,11 +39,21 @@ public class MoteurCalcul {
         try {
             Equation equation = parseEquation(nouvelleEquation);
             equationMap.put(equation.getNom(), equation);
-            equationEtVariableMap.put(equation.getNom(), equation);
-            addVariablesFromEquation(equation);
-            if (variableMap.containsKey(equation.getNom())) {
-                variableMap.remove(equation.getNom());
+            if(!equationEstRecursive(equation.getNom())){            //entrain de compléter
+                equationEtVariableMap.put(equation.getNom(), equation);
+                addVariablesFromEquation(equation);
+                if (variableMap.containsKey(equation.getNom())) {
+                    variableMap.remove(equation.getNom());
+                }
+            }else{
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Expression récursive");
+                alert.setTitle("Calculateur avancée");
+                alert.setContentText("L'expression saisie ne peut être ajoutée");
+                alert.showAndWait();
+                System.out.println("recursive");
             }
+
 //            retireVariablesInutiles();
         } catch (RuntimeException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -199,5 +210,19 @@ public class MoteurCalcul {
         System.out.println("e1=" + e1.calculate());
         System.out.println("e2=" + e2.calculate());
 
+    }
+
+    public boolean equationEstRecursive(String nomEquation) {
+        boolean estRecursive = false;
+        Equation equation = equationMap.get(nomEquation);
+        Set<String> elementsRequis = equation.getElementsRequis();
+
+        for (int i = 0; i < elementsRequis.size(); i++) {
+            if (elementsRequis.contains(nomEquation)) {
+                estRecursive = true;
+                break;
+            }
+        }
+        return estRecursive;
     }
 }

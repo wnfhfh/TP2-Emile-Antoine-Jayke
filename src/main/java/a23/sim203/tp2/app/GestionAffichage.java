@@ -17,6 +17,7 @@ public class GestionAffichage {
     String stringAffiche;
     CalculatriceController calculatriceController;
 
+
     public GestionAffichage(CalculatriceController controller) {
         moteurCalcul = new MoteurCalcul();
         stringAffiche = "";
@@ -74,12 +75,11 @@ public class GestionAffichage {
             calculatriceController.setStringAffiche(String.valueOf(reponse));
         });
     }
-
-    public void creerAlerteBoutonEgal() {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setHeaderText("Expression invalide");
+    public void creerAlerteRecursive() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText("Expression récursive");
         alert.setTitle("Calculateur avancée");
-        alert.setContentText("L'expression saisie ne peut être calculée");
+        alert.setContentText("L'expression saisie ne peut être ajoutée");
         alert.showAndWait();
     }
 
