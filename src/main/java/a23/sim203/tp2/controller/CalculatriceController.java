@@ -109,6 +109,7 @@ public class CalculatriceController implements Initializable {
         gestionAffichage.actionBoutonPlusMinus(boutonPlusMinus);
         gestionAffichage.actionBoutonEgal(boutonEgal);
         gestionAffichage.actionBoutonAjoute(boutonAjoute);
+        gestionAffichage.actionBoutonSupprime(boutonSupprime);
     }
 
 

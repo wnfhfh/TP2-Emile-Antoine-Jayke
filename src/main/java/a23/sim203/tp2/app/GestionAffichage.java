@@ -108,4 +108,12 @@ public class GestionAffichage {
             }
         });
     }
+
+    public void actionBoutonSupprime(Button bouton) {
+        bouton.setOnAction(event -> {
+            String equationAEffacer = calculatriceController.getListeEquations().getSelectionModel().getSelectedItems().get(0);
+            moteurCalcul.getEquationMap().remove(equationAEffacer.substring(0,2));
+
+        });
+    }
 }
