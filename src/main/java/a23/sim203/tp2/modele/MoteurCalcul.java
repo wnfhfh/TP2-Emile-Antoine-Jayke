@@ -97,7 +97,6 @@ public class MoteurCalcul {
             Expression associatedExpression = new Expression(equation.getExpression());
             equationMap.remove(nomEquation);
             variableMap.replace(associatedExpression.getExpressionString(), new Constant(associatedExpression.getExpressionString(), Double.NaN));
-
         }
     }
 
@@ -132,8 +131,9 @@ public class MoteurCalcul {
         Double resultat;
 
         String expressionStringTemp = equation.getExpression();
-        expressionStringTemp = remplacerEquations(expressionStringTemp);
-
+        if (variableMap.size() >= 2) {
+            expressionStringTemp = remplacerEquations(expressionStringTemp);
+        }
         Set<String> elementsRequis = new Equation("a0", expressionStringTemp).getElementsRequis();
         ArrayList<Constant> constants = new ArrayList();
 
@@ -150,19 +150,19 @@ public class MoteurCalcul {
         return resultat;
     }
 
+
     private String remplacerEquations(String expressionStringTemp) {
         String equationDecompressee = "";
         Set<String> equations = equationMap.keySet();
 
-        Iterator<String> iterator = equations.iterator();
-        while (iterator.hasNext()) {
-            String nomEquationTemp = iterator.next();
+        for (String nomEquationTemp : equations) {
             String equationUpdate = expressionStringTemp.replace(nomEquationTemp, '(' + equationMap.get(nomEquationTemp).getExpression() + ')');
             if (equationUpdate.length() > equationDecompressee.length()) equationDecompressee = equationUpdate;
         }
-        if (equationDecompressee == expressionStringTemp) return equationDecompressee;
+        if (equationDecompressee.equals(expressionStringTemp)) return equationDecompressee;
         else return remplacerEquations(equationDecompressee);
     }
+
 
     public Collection<String> getToutesLesVariables() {
         HashSet<String> toutesLesVariables = new HashSet<String>();

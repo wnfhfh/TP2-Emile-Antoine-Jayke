@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="Debug des test">
+    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="Debug d'un test. On supprimer le keySet et ne dois pas. Donc fixer la méthode effaceEquation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/Controller.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +70,20 @@
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MoteurCalculTest.testCalculSimple">
+  <component name="RunManager" selected="JUnit.MoteurCalculTest">
+    <configuration name="CalculatriceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.CalculatriceApp" />
+      <module name="calculateur-etu" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="a23.sim203.tp2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MoteurCalculTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="calculateur-etu" />
       <extension name="coverage">
@@ -83,7 +99,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoteurCalculTest.testCalcul2Equation2Var" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoteurCalculTest.testClesVariableMap" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
@@ -93,13 +109,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testCalcul2Equation2Var" />
+      <option name="METHOD_NAME" value="testClesVariableMap" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoteurCalculTest.testCalculSimple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoteurCalculTest.testDetermineToutesVariablesRequises" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
@@ -109,23 +125,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testCalculSimple" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MoteurCalculTest.testEffaceEquationVariablePartagee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="calculateur-etu" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="a23.sim203.tp2.modele.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
-      <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testEffaceEquationVariablePartagee" />
+      <option name="METHOD_NAME" value="testDetermineToutesVariablesRequises" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MoteurCalculTest.testCalculSimple" />
-        <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationVariablePartagee" />
         <item itemvalue="JUnit.MoteurCalculTest" />
-        <item itemvalue="JUnit.MoteurCalculTest.testCalcul2Equation2Var" />
+        <item itemvalue="Application.CalculatriceApp" />
         <item itemvalue="JUnit.MoteurCalculTest.testGetAllEquations" />
+        <item itemvalue="JUnit.MoteurCalculTest.testDetermineToutesVariablesRequises" />
+        <item itemvalue="JUnit.MoteurCalculTest.testClesVariableMap" />
       </list>
     </recent_temporary>
   </component>
@@ -179,6 +179,8 @@
       <workItem from="1697736301140" duration="3099000" />
       <workItem from="1697979826056" duration="7811000" />
       <workItem from="1697995323789" duration="2299000" />
+      <workItem from="1698108952254" duration="3000" />
+      <workItem from="1698147509641" duration="5250000" />
     </task>
     <task id="LOCAL-00001" summary="La méthode efface équation est commencé, cependant le test passe pas. À vérifier">
       <created>1697119728548</created>
@@ -208,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697990996413</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Debug d'un test. On supprimer le keySet et ne dois pas. Donc fixer la méthode effaceEquation">
+      <created>1698108583994</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698108583994</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,30 +239,31 @@
     <MESSAGE value="Boutons Effacer et Reculer fonctionnent" />
     <MESSAGE value="Zulu 17 appliquée" />
     <MESSAGE value="ajouteEquation ameliore, retireVariablesInutiles et getAllElementsRequis crees" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajouteEquation ameliore, retireVariablesInutiles et getAllElementsRequis crees" />
+    <MESSAGE value="Debug d'un test. On supprimer le keySet et ne dois pas. Donc fixer la méthode effaceEquation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debug d'un test. On supprimer le keySet et ne dois pas. Donc fixer la méthode effaceEquation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java</url>
           <line>81</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="16" />
+          <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="18" />
+          <line>125</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
