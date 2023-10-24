@@ -131,6 +131,7 @@ public class GestionAffichage {
                 gererEcrire();
             } else {
                 toggleBoutonLire.setText("lire");
+                gererLire(toggleButtonVariable);
                 toggleButtonVariable.setDisable(false);
             }
         });
@@ -140,6 +141,19 @@ public class GestionAffichage {
                 toggleButtonVariable.setText("valeur");
             } else {
                 toggleButtonVariable.setText("variable");
+            }
+        });
+    }
+
+    private void gererLire(ToggleButton toggleButtonVariable) {
+
+        calculatriceController.getListeVariables().setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                String stringAAjouter = calculatriceController.getListeVariables().getSelectionModel().getSelectedItem().substring(0, 2);
+                if (toggleButtonVariable.getText() == "valeur") {
+                    stringAAjouter = String.valueOf((moteurCalcul.getVariableValueMap().get(stringAAjouter)).getConstantValue());
+                }
+                calculatriceController.setStringAffiche(calculatriceController.getStringAfficheTexte() + stringAAjouter);
             }
         });
     }
