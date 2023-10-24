@@ -97,7 +97,7 @@ public class MoteurCalcul {
             Expression associatedExpression = new Expression(equation.getExpression());
             equationMap.remove(nomEquation);
             variableMap.replace(associatedExpression.getExpressionString(), new Constant(associatedExpression.getExpressionString(), Double.NaN));
-            variableMap.keySet().removeIf(variable -> !equationMap.containsKey(variable));
+
         }
     }
 
