@@ -154,15 +154,10 @@ public class CalculatriceController implements Initializable {
     public CheckMenuItem getMenuItemAssistanceVisuelle() {
         return menuItemAssistanceVisuelle;
     }
-    private void createListeVariables() {
-
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         gestionAffichage = new GestionAffichage(this);
         setBoutonsCalculatrice();
-        createListeVariables();
         createMenuAPropos();
     }
 }

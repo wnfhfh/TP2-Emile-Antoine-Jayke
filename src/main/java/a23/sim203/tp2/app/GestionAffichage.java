@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import org.mariuszgromada.math.mxparser.Constant;
 
 public class GestionAffichage {
     MoteurCalcul moteurCalcul;
@@ -127,6 +128,7 @@ public class GestionAffichage {
             if (toggleBoutonLire.isSelected()) {
                 toggleBoutonLire.setText("écrire");
                 toggleButtonVariable.setDisable(true);
+                gererEcrire();
             } else {
                 toggleBoutonLire.setText("lire");
                 toggleButtonVariable.setDisable(false);
@@ -138,6 +140,22 @@ public class GestionAffichage {
                 toggleButtonVariable.setText("valeur");
             } else {
                 toggleButtonVariable.setText("variable");
+            }
+        });
+    }
+
+    private void gererEcrire() {
+        calculatriceController.getListeVariables().setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                String nomVariableAChanger = calculatriceController.getListeVariables().getSelectionModel().getSelectedItem().substring(0, 2);
+                try {
+                    Constant nouvelleConstante = new Constant(nomVariableAChanger, Double.parseDouble(calculatriceController.getStringAfficheTexte()));
+                    moteurCalcul.getVariableValueMap().put(nomVariableAChanger, nouvelleConstante);
+                    calculatriceController.getListeVariables().getItems().remove(calculatriceController.getListeVariables().getSelectionModel().getSelectedItem());
+                    calculatriceController.getListeVariables().getItems().add(String.valueOf(nouvelleConstante.getConstantName() + " = " + nouvelleConstante.getConstantValue()));
+                } catch (Exception e) {
+                    System.out.println("veuillez enter une valeur numérique seulement");
+                }
             }
         });
     }
