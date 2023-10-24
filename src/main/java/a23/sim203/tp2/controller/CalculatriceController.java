@@ -75,7 +75,7 @@ public class CalculatriceController implements Initializable {
     @FXML
     private GridPane gridPane;
     @FXML
-    private ListView<?> listeEquations;
+    private ListView<String> listeEquations;
     @FXML
     private Menu menuAssistance;
     @FXML
@@ -109,12 +109,8 @@ public class CalculatriceController implements Initializable {
         gestionAffichage.actionBoutonPlusMinus(boutonPlusMinus);
         gestionAffichage.actionBoutonEgal(boutonEgal);
         gestionAffichage.actionBoutonAjoute(boutonAjoute);
-        actionAssistanceVisuelle(menuItemAssistanceVisuelle);
     }
 
-    private void createListeVariables() {
-        listeVariables.setCellFactory(param -> new ListCell<>());
-    }
 
     private void createMenuAPropos() {
         menuItemAPropos.setOnAction(event -> {
@@ -139,7 +135,7 @@ public class CalculatriceController implements Initializable {
         return listeVariables;
     }
 
-    public ListView<?> getListeEquations() {
+    public ListView<String> getListeEquations() {
         return listeEquations;
     }
 
@@ -151,31 +147,18 @@ public class CalculatriceController implements Initializable {
         return stringAffiche.getText();
     }
 
+    public CheckMenuItem getMenuItemAssistanceVisuelle() {
+        return menuItemAssistanceVisuelle;
+    }
+    private void createListeVariables() {
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        gestionAffichage = new GestionAffichage();
+        gestionAffichage = new GestionAffichage(this);
         setBoutonsCalculatrice();
         createListeVariables();
         createMenuAPropos();
-    }
-
-
-    public void actionAssistanceVisuelle(CheckMenuItem bouton) {
-        bouton.setOnAction(event -> {
-            boolean isSelected = bouton.isSelected();
-            if(isSelected){
-                bouton0.setOnMouseEntered(event1 -> {
-                    bouton0.setStyle("-fx-font-size: 35;");
-                });
-
-                bouton0.setOnMouseExited(event1 -> {
-                    bouton0.setStyle("-fx-font-size: 25;");
-                });
-
-            }
-
-//            bouton0.setOnMouseEntered(isSelected ? e -> bouton0.setStyle("-fx-font-size: 35") : null);
-//            bouton0.setOnMouseExited(isSelected ? e -> bouton0.setStyle("-fx-font-size: 25") : null);
-        });
     }
 }

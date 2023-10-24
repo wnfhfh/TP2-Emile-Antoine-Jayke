@@ -14,12 +14,14 @@ public class GestionAffichage {
     String stringAffiche;
     CalculatriceController calculatriceController;
 
-    public GestionAffichage() {
+    public GestionAffichage(CalculatriceController controller) {
         moteurCalcul = new MoteurCalcul();
         stringAffiche = "";
+        this.calculatriceController = controller;
     }
 
     public void setBoutonCaractere(char caractere, Button bouton) {
+        actionAssistanceVisuelle(bouton);
         bouton.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<Event>() {
             @Override
             public void handle(Event event) {
@@ -50,6 +52,7 @@ public class GestionAffichage {
     }
 
     public void actionBoutonPlusMinus(Button bouton) {
+        actionAssistanceVisuelle(bouton);
         bouton.setOnAction(event -> {
             if (stringAffiche.charAt(0) == '-') {
                 stringAffiche = stringAffiche.substring(1);
@@ -62,8 +65,9 @@ public class GestionAffichage {
     }
 
     public void actionBoutonEgal(Button bouton) {
+        actionAssistanceVisuelle(bouton);
         bouton.setOnAction(event -> {
-            double reponse = moteurCalcul.calcule(stringAffiche);
+            double reponse = moteurCalcul.calcule(calculatriceController.getStringAfficheTexte());
             calculatriceController.setStringAffiche(String.valueOf(reponse));
         });
     }
@@ -78,11 +82,30 @@ public class GestionAffichage {
 
     public void actionBoutonAjoute(Button bouton) {
         bouton.setOnMouseClicked(event -> {
-            moteurCalcul.ajouteEquation(calculatriceController.getStringAfficheTexte());
-            calculatriceController.getListeVariables().getItems().add(moteurCalcul.getEquationMap().get((calculatriceController.getStringAfficheTexte()).substring(0,2)).toString());
-            calculatriceController.getListeVariables().refresh();
+            try {
+                moteurCalcul.ajouteEquation(calculatriceController.getStringAfficheTexte());
+                calculatriceController.getListeEquations().getItems().add(moteurCalcul.getEquationMap().get((calculatriceController.getStringAfficheTexte()).substring(0, 2)).toString());
+                calculatriceController.getListeEquations().refresh();
+                calculatriceController.getListeVariables().getItems().setAll(moteurCalcul.getToutesLesVariables());
+            } catch (Exception e) {
+                System.out.println("équation invalide");
+            }
+        });
+    }
 
-            //TODO ajouter un try pour catch quand cest pas une equation et faire afficher les equations
+    public void actionAssistanceVisuelle(Button bouton) {
+        bouton.setOnMouseEntered(event -> {
+            boolean isSelected = calculatriceController.getMenuItemAssistanceVisuelle().isSelected();
+            if (isSelected) {
+                bouton.setStyle("-fx-font-size: 35;");
+            }
+        });
+
+        bouton.setOnMouseExited(event1 -> {
+            boolean isSelected = calculatriceController.getMenuItemAssistanceVisuelle().isSelected();
+            if (isSelected) {
+                bouton.setStyle("-fx-font-size: 25;");
+            }
         });
     }
 }

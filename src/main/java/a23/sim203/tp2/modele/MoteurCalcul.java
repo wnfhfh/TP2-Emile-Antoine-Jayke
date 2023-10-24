@@ -131,7 +131,7 @@ public class MoteurCalcul {
         Double resultat;
 
         String expressionStringTemp = equation.getExpression();
-        if (variableMap.size() >= 2) {
+        if (variableMap.size() >= 2) { //TODO figurer ca sert a quoi cette ligne la
             expressionStringTemp = remplacerEquations(expressionStringTemp);
         }
         Set<String> elementsRequis = new Equation("a0", expressionStringTemp).getElementsRequis();
