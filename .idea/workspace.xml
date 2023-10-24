@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +19,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="Antoine Houde &lt;2235325@cegeplimoilou.ca&gt;" />
         <option value="AntoineEmile &lt;a@a.com&gt;" />
         <option value="AntoineJaykeEmile &lt;a@a.com&gt;" />
         <option value="EmileAntoineJayke &lt;a@.com&gt;" />
@@ -182,7 +184,7 @@
       <workItem from="1698108952254" duration="3000" />
       <workItem from="1698147509641" duration="5250000" />
       <workItem from="1698157720530" duration="45000" />
-      <workItem from="1698161152351" duration="5113000" />
+      <workItem from="1698161152351" duration="8464000" />
     </task>
     <task id="LOCAL-00001" summary="La méthode efface équation est commencé, cependant le test passe pas. À vérifier">
       <created>1697119728548</created>
@@ -226,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698164710307</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="résolution bugs équations, début bouton supprime">
+      <created>1698172063012</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1698172063012</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,7 +259,8 @@
     <MESSAGE value="ajouteEquation ameliore, retireVariablesInutiles et getAllElementsRequis crees" />
     <MESSAGE value="Debug d'un test. On supprimer le keySet et ne dois pas. Donc fixer la méthode effaceEquation" />
     <MESSAGE value="équations s'affichent, autres correctifs minimes" />
-    <option name="LAST_COMMIT_MESSAGE" value="équations s'affichent, autres correctifs minimes" />
+    <MESSAGE value="résolution bugs équations, début bouton supprime" />
+    <option name="LAST_COMMIT_MESSAGE" value="résolution bugs équations, début bouton supprime" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -272,8 +282,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="25" />
+          <line>107</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

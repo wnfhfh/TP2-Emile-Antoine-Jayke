@@ -68,7 +68,7 @@ public class CalculatriceController implements Initializable {
     @FXML
     private Button boutonSupprime;
     @FXML
-    private Button boutonVariable;
+    private ToggleButton toggleBoutonVariable;
     @FXML
     private ListView<String> listeVariables;
 
@@ -110,6 +110,9 @@ public class CalculatriceController implements Initializable {
         gestionAffichage.actionBoutonEgal(boutonEgal);
         gestionAffichage.actionBoutonAjoute(boutonAjoute);
         gestionAffichage.actionBoutonSupprime(boutonSupprime);
+
+        ToggleGroup toggleGroup = new ToggleGroup();
+        gestionAffichage.actionToggleBoutons(toggleBoutonLire, toggleBoutonVariable,toggleGroup);
     }
 
 

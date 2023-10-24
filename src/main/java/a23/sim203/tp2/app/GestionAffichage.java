@@ -7,6 +7,8 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 
 public class GestionAffichage {
@@ -111,9 +113,32 @@ public class GestionAffichage {
 
     public void actionBoutonSupprime(Button bouton) {
         bouton.setOnAction(event -> {
-            String equationAEffacer = calculatriceController.getListeEquations().getSelectionModel().getSelectedItems().get(0);
-            moteurCalcul.getEquationMap().remove(equationAEffacer.substring(0,2));
+            moteurCalcul.getEquationMap().remove(calculatriceController.getListeEquations().getSelectionModel().getSelectedItem().substring(0, 2));
+            calculatriceController.getListeEquations().getItems().remove(calculatriceController.getListeEquations().getSelectionModel().getSelectedItem());
+            moteurCalcul.retireVariablesInutiles();
+        });
+    }
 
+    public void actionToggleBoutons(ToggleButton toggleBoutonLire, ToggleButton toggleButtonVariable, ToggleGroup toggleGroup) {
+        toggleBoutonLire.setToggleGroup(toggleGroup);
+        toggleButtonVariable.setToggleGroup(toggleGroup);
+
+        toggleBoutonLire.setOnMouseClicked(event -> {
+            if (toggleBoutonLire.isSelected()) {
+                toggleBoutonLire.setText("écrire");
+                toggleButtonVariable.setDisable(true);
+            } else {
+                toggleBoutonLire.setText("lire");
+                toggleButtonVariable.setDisable(false);
+            }
+        });
+
+        toggleButtonVariable.setOnMouseClicked(event -> {
+            if (toggleButtonVariable.isSelected()) {
+                toggleButtonVariable.setText("valeur");
+            } else {
+                toggleButtonVariable.setText("variable");
+            }
         });
     }
 }

@@ -50,7 +50,7 @@ public class MoteurCalcul {
         }
     }
 
-    private void retireVariablesInutiles() {
+    public void retireVariablesInutiles() {
         Set<String> variablesInutiles = getAllVariables();
         variablesInutiles.removeAll(getAllElementsRequis());
 
@@ -157,8 +157,10 @@ public class MoteurCalcul {
             String equationUpdate = expressionStringTemp.replace(nomEquationTemp, '(' + equationMap.get(nomEquationTemp).getExpression() + ')');
             if (equationUpdate.length() > equationDecompressee.length()) equationDecompressee = equationUpdate;
         }
-        if (equationDecompressee.equals(expressionStringTemp)) return equationDecompressee;
-        else return remplacerEquations(equationDecompressee);
+        if (equationDecompressee == "") equationDecompressee = expressionStringTemp;
+        if (!equationDecompressee.equals(expressionStringTemp))
+            equationDecompressee = remplacerEquations(equationDecompressee);
+        return equationDecompressee;
     }
 
 
