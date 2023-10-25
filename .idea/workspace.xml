@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="Oublié de commencer la JavaDoc par un verbe. Fixé">
+    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +74,7 @@
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\resources" />
     </key>
   </component>
+  <component name="RunManager" selected="Application.CalculatriceApp">
   <component name="RunManager" selected="JUnit.MoteurCalculTest">
     <configuration name="CalculatriceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.CalculatriceApp" />
@@ -128,7 +133,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoteurCalculTest.testRetireVariablesInutilesAvecEquationRecursive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoteurCalculTest.testEffaceEquationVariablePartagee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
@@ -138,7 +143,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testRetireVariablesInutilesAvecEquationRecursive" />
+      <option name="METHOD_NAME" value="testEffaceEquationVariablePartagee" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -157,11 +162,13 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.CalculatriceApp" />
+        <item itemvalue="JUnit.MoteurCalculTest" />
+        <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationVariablePartagee" />
         <item itemvalue="JUnit.MoteurCalculTest" />
         <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationSimple" />
         <item itemvalue="Application.CalculatriceApp" />
         <item itemvalue="Application.MoteurCalcul" />
-        <item itemvalue="JUnit.MoteurCalculTest.testRetireVariablesInutilesAvecEquationRecursive" />
       </list>
     </recent_temporary>
   </component>
@@ -270,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698198029190</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="bug fix effaceEquation efface maintenant aussi variables inutiles">
+      <created>1698201495418</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1698201495418</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,7 +313,8 @@
     <MESSAGE value="bouton ecrire fonctionne" />
     <MESSAGE value="Mes deux test unitaire sont fait! La JavaDoc de la classe test est terminé." />
     <MESSAGE value="JavaDoc de MoteurCalcul terminé. De plus, nettoyage de ses méthodes pour respecter les 30 lignes de codes max." />
-    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc de MoteurCalcul terminé. De plus, nettoyage de ses méthodes pour respecter les 30 lignes de codes max." />
+    <MESSAGE value="bug fix effaceEquation efface maintenant aussi variables inutiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fix effaceEquation efface maintenant aussi variables inutiles" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -316,21 +331,26 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>95</line>
+          <line>96</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>206</line>
-          <option name="timeStamp" value="37" />
+          <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>102</line>
-          <option name="timeStamp" value="38" />
+          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="a23.sim203.tp2.modele.MoteurCalcul" memberName="variableMap" />
+      </pinned-members>
+    </pin-to-top-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="((MoteurCalcul)((MoteurCalculTest)this).moteurCalcul).variableMap" custom="a23.sim203.tp2.modele.MoteurCalculTest,a23.sim203.tp2.modele.MoteurCalcul" />

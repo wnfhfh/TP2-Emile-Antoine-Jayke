@@ -123,6 +123,7 @@ public class MoteurCalcul {
 
         Iterator<String> iterator = variablesInutiles.iterator();
         if (variablesInutiles.size() > 0) {
+            Iterator<String> iterator = variablesInutiles.iterator();
             while (iterator.hasNext()) {
                 String variableTemp = iterator.next();
                 variableMap.remove(variableTemp);
@@ -226,11 +227,7 @@ public class MoteurCalcul {
      */
     public double calcule(String nomEquation) {
         Double resultat = Double.NaN;
-        if (nomEquation.length() == 2) {
-            resultat = calcule(equationMap.get(nomEquation));
-        } else {
-            resultat = calcule(new Equation("o9", nomEquation));
-        }
+        resultat = calcule(equationMap.get(nomEquation));
         return resultat;
     }
 
