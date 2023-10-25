@@ -1,7 +1,14 @@
+/**
+ * Le moteur de calcul gère les équations et les variables pour effectuer des calculs avancés.
+ * Il utilise la bibliothèque mathématique mxparser pour l'évaluation des expressions.
+ *
+ * @Author Jayke Gagné, Antoine Houde, Émile Roy
+ */
 package a23.sim203.tp2.modele;
 
 import a23.sim203.tp2.app.GestionAffichage;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import org.mariuszgromada.math.mxparser.Constant;
 import org.mariuszgromada.math.mxparser.Expression;
 import org.mariuszgromada.math.mxparser.License;
@@ -11,10 +18,23 @@ import java.util.*;
 public class MoteurCalcul {
 
     // ajoutez les attributs pour stocker les équations et les variables
+    /**
+     * Map pour stocker les variables avec leur nom et valeur associés.
+     */
     private HashMap<String, Constant> variableMap;
+    /**
+     * Map pour stocker les équations avec leur nom et expression associés.
+     */
     private HashMap<String, Equation> equationMap;
+    /**
+     * Map pour stocker les équations et variables utilisées dans le calcul.
+     */
     private HashMap<String, Object> equationEtVariableMap;
 
+    /**
+     * Constructeur par défaut du moteur de calcul.
+     * Initialise les maps et confirme l'utilisation non commerciale de la licence mxparser.
+     */
     public MoteurCalcul() {
         License.iConfirmNonCommercialUse("Cegep Limoilou");
         variableMap = new HashMap<>();
@@ -23,43 +43,77 @@ public class MoteurCalcul {
 
     }
 
+    /**
+     * Cette méthode retourne l'ensemble des variables requises en tant que {@code Set<String>}.
+     *
+     * @return L'ensemble des variables requises.
+     */
     private Set<String> determineToutesVariablesRequises() {
         return (Set<String>) getToutesLesVariables();
     }
 
+    /**
+     * Cette méthode ajoute une variable à la carte des variables avec la valeur spécifiée.
+     *
+     * @param variable Le nom de la variable à ajouter.
+     * @param valeur   La valeur de la variable à ajouter.
+     */
     private void ajouteVariable(String variable, double valeur) {
         variableMap.put(variable, new Constant(variable, valeur));
     }
 
+    /**
+     * Cette méthode permet de définir la valeur d'une variable existante.
+     *
+     * @param nomVariable Le nom de la variable à laquelle définir la valeur.
+     * @param valeur      La nouvelle valeur de la variable.
+     */
     public void setValeurVariable(String nomVariable, double valeur) {
         variableMap.put(nomVariable, new Constant(nomVariable, valeur));
     }
 
+    /**
+     * Ajoute une nouvelle équation au calculateur.
+     *
+     * <p>Cette méthode analyse la chaîne de caractères représentant l'équation, la transforme en objet Equation
+     * et l'ajoute aux maps correspondantes. Si l'équation n'est pas récursive, elle est également ajoutée
+     * à la map d'équations et de variables, les variables associées sont extraites et ajoutées à la carte des variables.
+     * Si une variable avec le même nom que l'équation existe, elle est supprimée de la carte des variables.
+     * Si l'équation est récursive, une alerte est affichée et l'équation n'est pas ajoutée.</p>
+     *
+     * @param nouvelleEquation La chaîne de caractères représentant la nouvelle équation.
+     */
     public void ajouteEquation(String nouvelleEquation) {
         try {
             Equation equation = parseEquation(nouvelleEquation);
             equationMap.put(equation.getNom(), equation);
-            if(!equationEstRecursive(equation.getNom())){            //entrain de compléter
+            if (!equationEstRecursive(equation.getNom())) {
                 equationEtVariableMap.put(equation.getNom(), equation);
                 addVariablesFromEquation(equation);
-                if (variableMap.containsKey(equation.getNom())) {
-                    variableMap.remove(equation.getNom());
-                }
-            }else{
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setHeaderText("Expression récursive");
-                alert.setTitle("Calculateur avancée");
-                alert.setContentText("L'expression saisie ne peut être ajoutée");
-                alert.showAndWait();
+                variableMap.remove(equation.getNom()); // Supprime la variable existante avec le même nom
+            } else {
+                // Affiche une alerte en cas d'expression récursive
+                new Alert(Alert.AlertType.CONFIRMATION, "Expression récursive", ButtonType.OK).showAndWait();
                 System.out.println("recursive");
             }
-
-//            retireVariablesInutiles();
         } catch (RuntimeException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Équation non valide");
+            // Affiche une alerte en cas d'équation non valide
+            new Alert(Alert.AlertType.ERROR, "Équation non valide").showAndWait();
         }
     }
+
+
+    /**
+     * Retire les variables inutiles du calculateur.
+     * <p>
+     * Cette méthode identifie les variables inutiles en calculant la différence entre l'ensemble de toutes les variables
+     * et l'ensemble de tous les éléments requis. Les variables inutiles sont ensuite retirées des cartes des variables
+     * et des équations et variables associées.
+     * </p>
+     * <p>
+     * Remarque : Cette méthode peut avoir un impact sur les équations du calculateur en retirant les variables inutilisées.
+     * </p>
+     */
 
     public void retireVariablesInutiles() {
         Set<String> variablesInutiles = getAllVariables();
@@ -75,6 +129,16 @@ public class MoteurCalcul {
         }
     }
 
+    /**
+     * Retourne l'ensemble de tous les éléments requis par les équations présentes dans le calculateur.
+     * <p>
+     * Cette méthode itère sur toutes les équations présentes dans la carte d'équations du calculateur
+     * et récupère l'ensemble des éléments requis par chaque équation. Ces éléments requis sont ajoutés à un ensemble
+     * qui est ensuite retourné.
+     * </p>
+     *
+     * @return L'ensemble de tous les éléments requis par les équations du calculateur.
+     */
     private Set<String> getAllElementsRequis() {
         Set<String> variablesRequises = new HashSet<>();
         Iterator<Equation> iterator = equationMap.values().iterator();
@@ -84,12 +148,34 @@ public class MoteurCalcul {
         return variablesRequises;
     }
 
+    /**
+     * Analyse une chaîne de caractères représentant une équation et crée un objet Equation correspondant.
+     * <p>
+     * Cette méthode prend une chaîne de caractères représentant une équation et la divise en deux parties en utilisant
+     * le signe égal (=) comme séparateur. Les deux parties sont utilisées pour créer un nouvel objet Equation,
+     * qui est ensuite retourné.
+     * </p>
+     *
+     * @param equationString La chaîne de caractères représentant l'équation à analyser.
+     * @return L'objet Equation créé à partir de la chaîne de caractères.
+     * @throws RuntimeException Si la chaîne de caractères ne peut pas être correctement analysée pour créer une équation.
+     */
     private Equation parseEquation(String equationString) {
         String[] equationSplit = equationString.split("=");
 
         return new Equation(equationSplit[0], equationSplit[1]);
     }
 
+    /**
+     * Ajoute les variables nécessaires à l'équation à la carte des variables du calculateur.
+     * <p>
+     * Cette méthode prend une équation en paramètre, extrait l'ensemble des éléments requis de cette équation,
+     * puis ajoute chaque variable nécessaire à la carte des variables. Si une variable n'est pas déjà présente
+     * dans la carte d'équations et de variables, elle est ajoutée avec une valeur par défaut de Double.NaN.
+     * </p>
+     *
+     * @param equation L'équation dont les variables nécessaires doivent être ajoutées à la carte des variables.
+     */
     private void addVariablesFromEquation(Equation equation) {
         Set<String> elementsRequis = equation.getElementsRequis();
         Iterator<String> iterator = elementsRequis.iterator();
@@ -102,6 +188,16 @@ public class MoteurCalcul {
         }
     }
 
+    /**
+     * Efface une équation du calculateur et met à jour les valeurs associées dans la carte des variables.
+     * <p>
+     * Cette méthode prend le nom d'une équation en paramètre, vérifie si l'équation existe dans la carte des équations,
+     * puis la supprime. Ensuite, elle récupère l'expression associée à l'équation, crée un nouvel objet Expression avec
+     * cette expression, et met à jour la valeur associée dans la carte des variables avec la nouvelle valeur NaN.
+     * </p>
+     *
+     * @param nomEquation Le nom de l'équation à effacer.
+     */
     public void effaceEquation(String nomEquation) {
         if (equationMap.containsKey(nomEquation)) {
             Equation equation = equationMap.get(nomEquation);
@@ -113,6 +209,18 @@ public class MoteurCalcul {
         }
     }
 
+    /**
+     * Calcule le résultat d'une équation spécifiée par son nom.
+     * <p>
+     * Cette méthode prend le nom d'une équation en paramètre et utilise la méthode de calcul appropriée pour
+     * déterminer le résultat. Si le nom d'équation a une longueur de 2 caractères, on suppose qu'il s'agit d'un nom
+     * direct d'équation et on utilise la méthode de calcul directement. Sinon, on crée une nouvelle équation fictive
+     * avec le nom "o9" et l'expression spécifiée, puis on utilise la méthode de calcul avec cette équation.
+     * </p>
+     *
+     * @param nomEquation Le nom de l'équation pour laquelle calculer le résultat.
+     * @return Le résultat du calcul de l'équation.
+     */
     public double calcule(String nomEquation) {
         Double resultat = Double.NaN;
         if (nomEquation.length() == 2) {
@@ -123,23 +231,54 @@ public class MoteurCalcul {
         return resultat;
     }
 
+    /**
+     * Retourne l'ensemble de toutes les variables présentes dans le calculateur.
+     *
+     * @return L'ensemble de toutes les variables.
+     */
     public Set<String> getAllVariables() {
         return variableMap.keySet();
     }
+
+    /**
+     * Retourne une collection de toutes les équations présentes dans le calculateur.
+     *
+     * @return La collection de toutes les équations.
+     */
 
     public Collection<Equation> getAllEquations() {
         return equationMap.values();
     }
 
+    /**
+     * Retourne la carte des valeurs actuelles des variables du calculateur.
+     *
+     * @return La carte des valeurs des variables.
+     */
     public HashMap<String, Constant> getVariableValues() {
         return variableMap;
     }
 
+    /**
+     * Retourne la carte des expressions de toutes les équations présentes dans le calculateur.
+     *
+     * @return La carte des expressions des équations.
+     */
     public HashMap<String, Equation> getEquationExpressions() {
         return equationMap;
     }
 
-
+    /**
+     * Calcule le résultat d'une équation donnée en utilisant les valeurs actuelles des variables du calculateur.
+     * <p>
+     * Cette méthode prend une équation en paramètre, remplace toutes les occurrences d'autres équations dans son expression,
+     * récupère les éléments requis de l'expression traitée, puis utilise les valeurs actuelles des variables pour
+     * effectuer le calcul de l'équation.
+     * </p>
+     *
+     * @param equation L'équation pour laquelle calculer le résultat.
+     * @return Le résultat du calcul de l'équation.
+     */
     public double calcule(Equation equation) {
         Double resultat;
 
@@ -161,7 +300,17 @@ public class MoteurCalcul {
         return resultat;
     }
 
-
+    /**
+     * Remplace les occurrences des équations dans une expression par leurs expressions respectives.
+     * <p>
+     * Cette méthode prend une chaîne de caractères représentant une expression en paramètre,
+     * remplace toutes les occurrences des noms d'équations présentes dans la carte des équations par
+     * leurs expressions respectives enveloppées de parenthèses, et retourne la nouvelle expression.
+     * </p>
+     *
+     * @param expressionStringTemp L'expression à traiter.
+     * @return La nouvelle expression avec les équations remplacées.
+     */
     private String remplacerEquations(String expressionStringTemp) {
         String equationDecompressee = "";
         Set<String> equations = equationMap.keySet();
@@ -176,7 +325,16 @@ public class MoteurCalcul {
         return equationDecompressee;
     }
 
-
+    /**
+     * Retourne une collection de toutes les variables du calculateur avec leurs noms et valeurs.
+     * <p>
+     * Cette méthode itère sur toutes les constantes présentes dans la carte des variables du calculateur,
+     * récupère le nom et la valeur de chaque constante, et les ajoute à une collection. La collection résultante
+     * contient des chaînes de caractères au format "nomVariable = valeurVariable".
+     * </p>
+     *
+     * @return La collection de toutes les variables avec leurs noms et valeurs.
+     */
     public Collection<String> getToutesLesVariables() {
         HashSet<String> toutesLesVariables = new HashSet<String>();
 
@@ -189,14 +347,36 @@ public class MoteurCalcul {
         return toutesLesVariables;
     }
 
+    /**
+     * Retourne une carte représentant les noms de variables associés à leurs valeurs actuelles dans le calculateur.
+     *
+     * @return La carte des noms de variables associés à leurs valeurs.
+     */
     public Map<String, Constant> getVariableValueMap() {
         return variableMap;
     }
 
+    /**
+     * Retourne une carte représentant les noms d'équations associés à leurs expressions dans le calculateur.
+     *
+     * @return La carte des noms d'équations associés à leurs expressions.
+     */
     public Map<String, Equation> getEquationMap() {
         return equationMap;
     }
 
+    /**
+     * Programme principal démontrant l'utilisation d'expressions avec plusieurs variables.
+     * <p>
+     * Ce programme utilise la classe Expression pour créer deux expressions mathématiques avec plusieurs variables,
+     * puis calcule et affiche les résultats.
+     * </p>
+     * <p>
+     * Note : Ce programme assume l'utilisation d'une classe License pour la confirmation d'utilisation non commerciale.
+     * </p>
+     *
+     * @param args Les arguments de ligne de commande (non utilisés dans cet exemple).
+     */
     public static void main(String[] args) {
 
         // Comment utiliser les expressions avec plusieurs variables
@@ -213,6 +393,13 @@ public class MoteurCalcul {
         System.out.println("e2=" + e2.calculate());
 
     }
+
+    /**
+     * Méthode pour vérifier si une équation est récursive.
+     *
+     * @param nomEquation Le nom de l'équation à vérifier.
+     * @return true si l'équation est récursive, false sinon.
+     */
 
     public boolean equationEstRecursive(String nomEquation) {
         boolean estRecursive = false;

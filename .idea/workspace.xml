@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="">
+    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="Mes deux test unitaire sont fait! La JavaDoc de la classe test est terminé.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +69,7 @@
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MoteurCalcul">
+  <component name="RunManager" selected="JUnit.MoteurCalculTest">
     <configuration name="MoteurCalcul" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalcul" />
       <module name="calculateur-etu" />
@@ -161,9 +159,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MoteurCalculTest" />
         <item itemvalue="Application.MoteurCalcul" />
         <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationSimple" />
-        <item itemvalue="JUnit.MoteurCalculTest" />
         <item itemvalue="JUnit.MoteurCalculTest.testRetireVariablesInutilesAvecEquationRecursive" />
         <item itemvalue="JUnit.MoteurCalculTest.testEquationRecursive" />
       </list>
@@ -260,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698177744431</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Mes deux test unitaire sont fait! La JavaDoc de la classe test est terminé.">
+      <created>1698196691409</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1698196691409</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,19 +292,20 @@
     <MESSAGE value="résolution bugs équations, début bouton supprime" />
     <MESSAGE value="résolution bugs équations, début boutons toggle" />
     <MESSAGE value="bouton ecrire fonctionne" />
-    <option name="LAST_COMMIT_MESSAGE" value="bouton ecrire fonctionne" />
+    <MESSAGE value="Mes deux test unitaire sont fait! La JavaDoc de la classe test est terminé." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mes deux test unitaire sont fait! La JavaDoc de la classe test est terminé." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>163</line>
+          <line>175</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>185</line>
+          <line>205</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
