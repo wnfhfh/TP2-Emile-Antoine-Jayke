@@ -1,3 +1,8 @@
+/**
+ * Gère l'affichage et les interactions de la calculatrice.
+ *
+ * @Author Jayke Gagné, Antoine Houde, Émile Roy
+ */
 package a23.sim203.tp2.app;
 
 
@@ -17,12 +22,23 @@ public class GestionAffichage {
     String stringAffiche;
     CalculatriceController calculatriceController;
 
-
+    /**
+     * Constructeur de la classe GestionAffichage.
+     *
+     * @param controller Le contrôleur de la calculatrice.
+     */
     public GestionAffichage(CalculatriceController controller) {
         moteurCalcul = new MoteurCalcul();
         stringAffiche = "";
         this.calculatriceController = controller;
     }
+
+    /**
+     * Configure le bouton pour afficher un caractère lorsqu'il est cliqué.
+     *
+     * @param caractere Le caractère a affiché.
+     * @param bouton    Le bouton associé.
+     */
 
     public void setBoutonCaractere(char caractere, Button bouton) {
         actionAssistanceVisuelle(bouton);
@@ -35,16 +51,32 @@ public class GestionAffichage {
         });
     }
 
+    /**
+     * Définit le contrôleur de la calculatrice pour cette instance de GestionAffichage.
+     *
+     * @param calculatriceController Le contrôleur de la calculatrice.
+     */
     public void setCalculatriceController(CalculatriceController calculatriceController) {
         this.calculatriceController = calculatriceController;
     }
 
+    /**
+     * Associe un événement au bouton pour effacer l'affichage de la calculatrice.
+     *
+     * @param bouton Le bouton associé à l'action d'effacement.
+     */
     public void actionBoutonEffacer(Button bouton) {
         bouton.setOnAction(event -> {
             stringAffiche = "";
             calculatriceController.setStringAffiche(stringAffiche);
         });
     }
+
+    /**
+     * Associe un événement au bouton pour reculer d'un caractère dans l'affichage de la calculatrice.
+     *
+     * @param bouton Le bouton associé à l'action de recul.
+     */
 
     public void actionBoutonReculer(Button bouton) {
         bouton.setOnAction(event -> {
@@ -55,6 +87,11 @@ public class GestionAffichage {
         });
     }
 
+    /**
+     * Associe un événement au bouton pour changer le signe de la valeur affichée (positif/négatif).
+     *
+     * @param bouton Le bouton associé à l'action de changement de signe.
+     */
     public void actionBoutonPlusMinus(Button bouton) {
         actionAssistanceVisuelle(bouton);
         bouton.setOnAction(event -> {
@@ -68,6 +105,11 @@ public class GestionAffichage {
         });
     }
 
+    /**
+     * Associe un événement au bouton pour effectuer le calcul de l'expression actuellement affichée.
+     *
+     * @param bouton Le bouton associé à l'action de calcul.
+     */
     public void actionBoutonEgal(Button bouton) {
         actionAssistanceVisuelle(bouton);
         bouton.setOnAction(event -> {
@@ -75,6 +117,11 @@ public class GestionAffichage {
             calculatriceController.setStringAffiche(String.valueOf(reponse));
         });
     }
+
+    /**
+     * Crée et affiche une alerte indiquant une expression récursive.
+     * Utilisé lorsque l'utilisateur tente d'ajouter une expression récursive.
+     */
     public void creerAlerteRecursive() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText("Expression récursive");
@@ -83,6 +130,11 @@ public class GestionAffichage {
         alert.showAndWait();
     }
 
+    /**
+     * Associe un événement au bouton pour ajouter une équation à partir de l'expression actuellement affichée.
+     *
+     * @param bouton Le bouton associé à l'action d'ajout d'équation.
+     */
     public void actionBoutonAjoute(Button bouton) {
         bouton.setOnMouseClicked(event -> {
             try {
@@ -95,6 +147,12 @@ public class GestionAffichage {
             }
         });
     }
+
+    /**
+     * Associe des événements visuels au bouton pour l'assistance visuelle.
+     *
+     * @param bouton Le bouton associé à l'assistance visuelle.
+     */
 
     public void actionAssistanceVisuelle(Button bouton) {
         bouton.setOnMouseEntered(event -> {
@@ -112,6 +170,11 @@ public class GestionAffichage {
         });
     }
 
+    /**
+     * Associe un événement au bouton pour supprimer une équation sélectionnée dans la liste des équations.
+     *
+     * @param bouton Le bouton associé à l'action de suppression.
+     */
     public void actionBoutonSupprime(Button bouton) {
         bouton.setOnAction(event -> {
             moteurCalcul.getEquationMap().remove(calculatriceController.getListeEquations().getSelectionModel().getSelectedItem().substring(0, 2));
@@ -120,6 +183,13 @@ public class GestionAffichage {
         });
     }
 
+    /**
+     * Associe des événements aux boutons de bascule pour gérer les actions d'écriture et de lecture.
+     *
+     * @param toggleBoutonLire     Le bouton de bascule pour l'action de lecture/écriture.
+     * @param toggleButtonVariable Le bouton de bascule pour sélectionner la valeur ou la variable.
+     * @param toggleGroup          Le groupe de bascules auquel appartiennent les boutons.
+     */
     public void actionToggleBoutons(ToggleButton toggleBoutonLire, ToggleButton toggleButtonVariable, ToggleGroup toggleGroup) {
         toggleBoutonLire.setToggleGroup(toggleGroup);
         toggleButtonVariable.setToggleGroup(toggleGroup);
@@ -145,6 +215,11 @@ public class GestionAffichage {
         });
     }
 
+    /**
+     * Gère l'action de lecture lorsqu'une variable est double-cliquée dans la liste des variables.
+     *
+     * @param toggleButtonVariable Le bouton de bascule pour sélectionner la valeur ou la variable.
+     */
     private void gererLire(ToggleButton toggleButtonVariable) {
 
         calculatriceController.getListeVariables().setOnMouseClicked(event -> {
@@ -158,6 +233,9 @@ public class GestionAffichage {
         });
     }
 
+    /**
+     * Gère l'action d'écriture lorsqu'une variable est double-cliquée dans la liste des variables.
+     */
     private void gererEcrire() {
         calculatriceController.getListeVariables().setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) {
