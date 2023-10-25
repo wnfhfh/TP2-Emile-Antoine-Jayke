@@ -159,5 +159,6 @@ public class CalculatriceController implements Initializable {
         gestionAffichage = new GestionAffichage(this);
         setBoutonsCalculatrice();
         createMenuAPropos();
+
     }
 }

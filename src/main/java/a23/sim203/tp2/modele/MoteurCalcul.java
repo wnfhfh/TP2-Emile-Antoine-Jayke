@@ -162,7 +162,7 @@ public class MoteurCalcul {
      * @return L'objet Equation créé à partir de la chaîne de caractères.
      * @throws RuntimeException Si la chaîne de caractères ne peut pas être correctement analysée pour créer une équation.
      */
-    private Equation parseEquation(String equationString) {
+    public Equation parseEquation(String equationString) {
         String[] equationSplit = equationString.split("=");
 
         return new Equation(equationSplit[0], equationSplit[1]);

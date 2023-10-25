@@ -247,6 +247,19 @@ class MoteurCalculTest {
     }
 
     /**
+     * Teste la séparation d'une équation de chaque coté du symbole égal
+     */
+    @Test
+    public void testParseEquation() {
+        Platform.runLater(() -> {
+            Equation result = moteurCalcul.parseEquation("c0=6+b0");
+            assertEquals("c0", result.getNom());
+            assertEquals("6+b0", result.getExpression());
+        });
+    }
+
+
+    /**
      * Teste la suppression de variables inutiles et s'assure que le moteur de calcul
      * fonctionne correctement après la suppression.
      */
