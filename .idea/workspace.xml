@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="Mes deux test unitaire sont fait! La JavaDoc de la classe test est terminé.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
-    </list>
+    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="JavaDoc de MoteurCalcul terminé. De plus, nettoyage de ses méthodes pour respecter les 30 lignes de codes max." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -265,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1698196691409</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="JavaDoc de MoteurCalcul terminé. De plus, nettoyage de ses méthodes pour respecter les 30 lignes de codes max.">
+      <created>1698198029190</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1698198029190</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +297,8 @@
     <MESSAGE value="résolution bugs équations, début boutons toggle" />
     <MESSAGE value="bouton ecrire fonctionne" />
     <MESSAGE value="Mes deux test unitaire sont fait! La JavaDoc de la classe test est terminé." />
-    <option name="LAST_COMMIT_MESSAGE" value="Mes deux test unitaire sont fait! La JavaDoc de la classe test est terminé." />
+    <MESSAGE value="JavaDoc de MoteurCalcul terminé. De plus, nettoyage de ses méthodes pour respecter les 30 lignes de codes max." />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc de MoteurCalcul terminé. De plus, nettoyage de ses méthodes pour respecter les 30 lignes de codes max." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

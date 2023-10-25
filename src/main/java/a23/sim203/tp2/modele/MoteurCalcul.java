@@ -1,6 +1,6 @@
 /**
- * Le moteur de calcul gère les équations et les variables pour effectuer des calculs avancés.
- * Il utilise la bibliothèque mathématique mxparser pour l'évaluation des expressions.
+ * Gère les équations et les variables pour effectuer des calculs avancés.
+ * Utilise la bibliothèque mathématique mxparser pour l'évaluation des expressions.
  *
  * @Author Jayke Gagné, Antoine Houde, Émile Roy
  */
@@ -19,15 +19,15 @@ public class MoteurCalcul {
 
     // ajoutez les attributs pour stocker les équations et les variables
     /**
-     * Map pour stocker les variables avec leur nom et valeur associés.
+     * Stock les variables avec leur nom et valeur associés.
      */
     private HashMap<String, Constant> variableMap;
     /**
-     * Map pour stocker les équations avec leur nom et expression associés.
+     * Stock les équations avec leur nom et expression associés.
      */
     private HashMap<String, Equation> equationMap;
     /**
-     * Map pour stocker les équations et variables utilisées dans le calcul.
+     * Stock les équations et variables utilisées dans le calcul.
      */
     private HashMap<String, Object> equationEtVariableMap;
 
@@ -44,7 +44,7 @@ public class MoteurCalcul {
     }
 
     /**
-     * Cette méthode retourne l'ensemble des variables requises en tant que {@code Set<String>}.
+     * Retourne l'ensemble des variables requises en tant que {@code Set<String>}.
      *
      * @return L'ensemble des variables requises.
      */
@@ -53,7 +53,7 @@ public class MoteurCalcul {
     }
 
     /**
-     * Cette méthode ajoute une variable à la carte des variables avec la valeur spécifiée.
+     * Ajoute une variable à la carte des variables avec la valeur spécifiée.
      *
      * @param variable Le nom de la variable à ajouter.
      * @param valeur   La valeur de la variable à ajouter.
@@ -63,7 +63,7 @@ public class MoteurCalcul {
     }
 
     /**
-     * Cette méthode permet de définir la valeur d'une variable existante.
+     * Permet de définir la valeur d'une variable existante.
      *
      * @param nomVariable Le nom de la variable à laquelle définir la valeur.
      * @param valeur      La nouvelle valeur de la variable.
@@ -366,7 +366,7 @@ public class MoteurCalcul {
     }
 
     /**
-     * Programme principal démontrant l'utilisation d'expressions avec plusieurs variables.
+     * Démontre l'utilisation d'expressions avec plusieurs variables.
      * <p>
      * Ce programme utilise la classe Expression pour créer deux expressions mathématiques avec plusieurs variables,
      * puis calcule et affiche les résultats.
@@ -395,7 +395,7 @@ public class MoteurCalcul {
     }
 
     /**
-     * Méthode pour vérifier si une équation est récursive.
+     * Vérifie si une équation est récursive.
      *
      * @param nomEquation Le nom de l'équation à vérifier.
      * @return true si l'équation est récursive, false sinon.
