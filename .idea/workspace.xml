@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="JavaDoc de MoteurCalcul terminé. De plus, nettoyage de ses méthodes pour respecter les 30 lignes de codes max.">
+    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="bouton ecrire fonctionne">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +69,7 @@
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CalculatriceApp">
+  <component name="RunManager" selected="JUnit.MoteurCalculTest.testEffaceEquationSimple">
     <configuration name="CalculatriceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.CalculatriceApp" />
       <module name="calculateur-etu" />
@@ -157,10 +156,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CalculatriceApp" />
-        <item itemvalue="JUnit.MoteurCalculTest" />
-        <item itemvalue="Application.MoteurCalcul" />
         <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationSimple" />
+        <item itemvalue="JUnit.MoteurCalculTest" />
+        <item itemvalue="Application.CalculatriceApp" />
+        <item itemvalue="Application.MoteurCalcul" />
         <item itemvalue="JUnit.MoteurCalculTest.testRetireVariablesInutilesAvecEquationRecursive" />
       </list>
     </recent_temporary>
@@ -318,6 +317,16 @@
           <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
           <line>95</line>
           <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
+          <line>206</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

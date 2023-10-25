@@ -208,6 +208,7 @@ public class MoteurCalcul {
 
             // Met à jour l'expression dans variableMap avec la nouvelle valeur NaN
             variableMap.replace(associatedExpression.getExpressionString(), new Constant(associatedExpression.getExpressionString(), Double.NaN));
+            retireVariablesInutiles();
         }
     }
 
