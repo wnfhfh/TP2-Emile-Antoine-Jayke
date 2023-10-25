@@ -7,6 +7,7 @@ package a23.sim203.tp2.app;
 
 
 import a23.sim203.tp2.controller.CalculatriceController;
+import a23.sim203.tp2.modele.Equation;
 import a23.sim203.tp2.modele.MoteurCalcul;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -31,6 +32,27 @@ public class GestionAffichage {
         moteurCalcul = new MoteurCalcul();
         stringAffiche = "";
         this.calculatriceController = controller;
+        ajouterEquationsDeBase();
+    }
+
+    /**
+     * Ajoute les équations demandées aux listes et au moteur de calcul.
+     */
+    private void ajouterEquationsDeBase() {
+        moteurCalcul.ajouteEquation("sin0=sin(x0)");
+        moteurCalcul.ajouteEquation("cos0=cos(x0)");
+        moteurCalcul.ajouteEquation("inverse0=1/x0");
+        moteurCalcul.ajouteEquation("exp0 = x0^e0");
+        moteurCalcul.ajouteEquation("linear0 = a0*x0+b0");
+
+        for (Equation equation :
+                moteurCalcul.getAllEquations()) {
+            calculatriceController.getListeEquations().getItems().add(equation.toString());
+        }
+        for (String variable :
+                moteurCalcul.getAllVariables()) {
+            calculatriceController.getListeVariables().getItems().add(variable + " = " +moteurCalcul.getVariableValues().get(variable).getConstantValue());
+        }
     }
 
     /**

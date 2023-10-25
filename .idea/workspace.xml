@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="Oublié de commencer la JavaDoc par un verbe. Fixé">
-    <list default="true" id="cb1fc07c-e092-4613-9b54-7ff048027b38" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/controller/CalculatriceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/app/GestionAffichage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/a23/sim203/tp2/calculatrice.fxml" afterDir="false" />
     </list>
@@ -75,7 +73,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.CalculatriceApp">
-  <component name="RunManager" selected="JUnit.MoteurCalculTest">
     <configuration name="CalculatriceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.CalculatriceApp" />
       <module name="calculateur-etu" />
@@ -167,8 +164,6 @@
         <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationVariablePartagee" />
         <item itemvalue="JUnit.MoteurCalculTest" />
         <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationSimple" />
-        <item itemvalue="Application.CalculatriceApp" />
-        <item itemvalue="Application.MoteurCalcul" />
       </list>
     </recent_temporary>
   </component>
@@ -331,7 +326,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>96</line>
+          <line>98</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -341,7 +336,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>87</line>
+          <line>89</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
@@ -356,5 +351,15 @@
         <watch expression="((MoteurCalcul)((MoteurCalculTest)this).moteurCalcul).variableMap" custom="a23.sim203.tp2.modele.MoteurCalculTest,a23.sim203.tp2.modele.MoteurCalcul" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="regexState">
+    <option name="map">
+      <map>
+        <entry key="flags" value="0" />
+        <entry key="mode" value="0" />
+        <entry key="regex" value="" />
+        <entry key="text" value="1900-01-01 2007/08/13 1900.01.01 1900 01 01 1900-01.01 1900 13 01 1900 02 31" />
+      </map>
+    </option>
   </component>
 </project>

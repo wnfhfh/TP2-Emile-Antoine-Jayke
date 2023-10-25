@@ -14,6 +14,8 @@ import org.mariuszgromada.math.mxparser.Expression;
 import org.mariuszgromada.math.mxparser.License;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MoteurCalcul {
 
@@ -121,7 +123,6 @@ public class MoteurCalcul {
         Set<String> variablesInutiles = getAllVariables();
         variablesInutiles.removeAll(getAllElementsRequis());
 
-        Iterator<String> iterator = variablesInutiles.iterator();
         if (variablesInutiles.size() > 0) {
             Iterator<String> iterator = variablesInutiles.iterator();
             while (iterator.hasNext()) {
@@ -226,8 +227,11 @@ public class MoteurCalcul {
      * @return Le résultat du calcul de l'équation.
      */
     public double calcule(String nomEquation) {
-        Double resultat = Double.NaN;
-        resultat = calcule(equationMap.get(nomEquation));
+        Double resultat;
+        Pattern pattern = Pattern.compile("[a-z]");
+        Matcher matcher = pattern.matcher(nomEquation);
+
+        if (matcher.find()) resultat = calcule(equationMap.get(nomEquation)); else resultat = calcule(new Equation("o9",nomEquation.replace(" ","")));
         return resultat;
     }
 
