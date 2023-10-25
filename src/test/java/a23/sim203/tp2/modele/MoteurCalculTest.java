@@ -240,12 +240,6 @@ class MoteurCalculTest {
         Platform.runLater(() -> {
             boolean estRecursive = false;
             moteurCalcul.ajouteEquation("a0=5+a0");
-//        for (int i = 0; i < moteurCalcul.getEquationMap().get("a0").getElementsRequis().size(); i++) {
-//            if (moteurCalcul.getEquationMap().get("a0").getElementsRequis().contains("a0")) {
-//                estRecursive = true;
-//                break;
-//            }
-//        }
             moteurCalcul.getEquationMap().get("a0");
             estRecursive = moteurCalcul.equationEstRecursive("a0");
             assertTrue(estRecursive);

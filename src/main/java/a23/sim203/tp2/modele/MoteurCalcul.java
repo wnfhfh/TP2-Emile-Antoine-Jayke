@@ -94,7 +94,9 @@ public class MoteurCalcul {
             } else {
                 // Affiche une alerte en cas d'expression récursive
                 new Alert(Alert.AlertType.CONFIRMATION, "Expression récursive", ButtonType.OK).showAndWait();
-                System.out.println("recursive");
+                equationMap.remove(equation.getNom());
+                equationEtVariableMap.remove(equation.getNom());
+
             }
         } catch (RuntimeException e) {
             // Affiche une alerte en cas d'équation non valide
