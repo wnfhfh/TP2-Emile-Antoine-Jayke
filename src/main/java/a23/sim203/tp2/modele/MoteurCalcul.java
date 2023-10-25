@@ -107,6 +107,8 @@ public class MoteurCalcul {
             Equation equation = equationMap.get(nomEquation);
             Expression associatedExpression = new Expression(equation.getExpression());
             equationMap.remove(nomEquation);
+
+            // Met à jour l'expression dans variableMap avec la nouvelle valeur NaN
             variableMap.replace(associatedExpression.getExpressionString(), new Constant(associatedExpression.getExpressionString(), Double.NaN));
         }
     }

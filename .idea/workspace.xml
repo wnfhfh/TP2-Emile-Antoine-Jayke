@@ -71,13 +71,13 @@
       <recent name="U:\Prog2023\Session 3\TP2-Emile-Antoine-Jayke\tp2-etu-a23\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CalculatriceApp">
-    <configuration name="CalculatriceApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.CalculatriceApp" />
+  <component name="RunManager" selected="Application.MoteurCalcul">
+    <configuration name="MoteurCalcul" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalcul" />
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="a23.sim203.tp2.*" />
+          <option name="PATTERN" value="a23.sim203.tp2.modele.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,7 +100,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoteurCalculTest.testDetermineToutesVariablesRequises" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoteurCalculTest.testEffaceEquationSimple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
@@ -110,7 +110,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testDetermineToutesVariablesRequises" />
+      <option name="METHOD_NAME" value="testEffaceEquationSimple" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,7 +132,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MoteurCalculTest.testGetAllEquations" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MoteurCalculTest.testRetireVariablesInutilesAvecEquationRecursive" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="calculateur-etu" />
       <extension name="coverage">
         <pattern>
@@ -142,7 +142,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="a23.sim203.tp2.modele" />
       <option name="MAIN_CLASS_NAME" value="a23.sim203.tp2.modele.MoteurCalculTest" />
-      <option name="METHOD_NAME" value="testGetAllEquations" />
+      <option name="METHOD_NAME" value="testRetireVariablesInutilesAvecEquationRecursive" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -161,11 +161,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.CalculatriceApp" />
-        <item itemvalue="JUnit.MoteurCalculTest.testEquationRecursive" />
+        <item itemvalue="Application.MoteurCalcul" />
+        <item itemvalue="JUnit.MoteurCalculTest.testEffaceEquationSimple" />
         <item itemvalue="JUnit.MoteurCalculTest" />
-        <item itemvalue="JUnit.MoteurCalculTest.testGetAllEquations" />
-        <item itemvalue="JUnit.MoteurCalculTest.testDetermineToutesVariablesRequises" />
+        <item itemvalue="JUnit.MoteurCalculTest.testRetireVariablesInutilesAvecEquationRecursive" />
+        <item itemvalue="JUnit.MoteurCalculTest.testEquationRecursive" />
       </list>
     </recent_temporary>
   </component>
@@ -294,28 +294,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>125</line>
+          <line>163</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/a23/sim203/tp2/modele/MoteurCalculTest.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>141</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/a23/sim203/tp2/modele/MoteurCalcul.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="32" />
+          <line>185</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
